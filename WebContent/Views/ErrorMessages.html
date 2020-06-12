@@ -1,0 +1,15 @@
+<div class="row" ng-show="showErrorMessages">
+    <section class="col-lg-80 connectedSortable">
+        <div class="box box-solid box-danger">
+            <div class="box-header">
+                <div class="pull-right box-tools">
+                    <button class="btn btn-danger btn-xs" data-widget='remove' data-toggle="tooltip" title="Close"><i class="fa fa-times"></i></button>
+                </div>
+                <div ng-repeat="message in errorMessages | unique" >
+                    <i class="fa fa-warning" style="margin-right: 10px; font-size: 16px; padding: 10px 0px 0px 10px;"></i>
+                    <span style="font-size: 16px; margin-top: 5px;">{{ message }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

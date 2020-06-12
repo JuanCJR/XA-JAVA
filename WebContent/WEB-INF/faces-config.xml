@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+    <application>
+    	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    	<resource-bundle>
+			<base-name>configuration</base-name>
+			<var>config</var>
+		</resource-bundle>
+    	<resource-bundle>
+			<base-name>prefNames</base-name>
+			<var>prefNames</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>entities</base-name>
+			<var>entities</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>constants</base-name>
+			<var>consts</var>
+		</resource-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+		<message-bundle>
+			messages
+		</message-bundle>
+	</application>
+</faces-config>

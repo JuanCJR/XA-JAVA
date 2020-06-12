@@ -1,0 +1,75 @@
+<business-messages></business-messages>
+<div ng-init="init()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-lg-80 connectedSortable">
+			<div class="box box-primary grid-box">
+				<div class="box-header">
+					<div class="pull-right box-tools">
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Previous" ng-click="previousPage()" ng-show="hasPreviousPage()"><i class="fa fa-chevron-left"></i></button>
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Next" ng-click="nextPage(26)" ng-show="hasNextPage()"><i class="fa fa-chevron-right"></i></button>
+					</div>
+					<i class="fa fa-table hidden-xs"></i>
+					<h3 class="box-title">Work with Customers</h3>
+				</div>
+				<div class="box-body">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+    							<div class="col-md-80">
+    								<form class="form-horizontal" name="flatPanel">
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithCustomersEntryPanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+    								</form>
+    							</div>
+    						</div>
+    					</div>
+ 					<div class="row">
+						<div class="col-xs-80">
+							<div class="table-responsive">
+								<!-- Display filter fields. Valid position values are: above <table>, inside div.box-tools, above root div.row -->
+								<grid-filter ng-show="filterFlds.length != 0">
+									<input ng-model="filterData.xwbccd" ui-keypress="{'enter':'applyFilter()'}" class="form-control input-sm" type="text" id="xwbccd" maxlength="11" uppercase>
+								</grid-filter>
+								<table class="grid table table-bordered table-striped table-hover preserve-grid-layout">
+									<thead>
+										<tr>
+											<th></th>
+											<th class="col-md-17" ng-show="true">{{ consts.WWCUSTS01G__2 }}</th>
+											<th class="col-md-62" ng-show="true">{{ consts.WWCUSTS01G__1 }}</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="row in gridVariable" ng-class-even="'alternate-row'">
+											<td><input type="checkbox" icheck ng-model="row.checked" /></td>
+											<td>{{ row.xwbccd | uppercase }}</td>
+											<td>{{ row.xwg4tx }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-lg-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+ 								<button id="WWCUSTS02D_W" data-toggle="tooltip" title="WWCUSTS02D" action="addRecordWWCUSTS01G()" visible="true">{{ consts.WWCUSTS01G_WWCUSTS02D_W }}</button>
+ 								<button id="WWCUSTS02D_U2" data-toggle="tooltip" title="WWCUSTS02D" action="changeRecordWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_WWCUSTS02D_U2 }}</button>
+ 								<button id="WWCUSTS02D_D3" data-toggle="tooltip" title="WWCUSTS02D" action="deleteRecordWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_WWCUSTS02D_D3 }}</button>
+ 								<button id="WWCUSTS02D_R4" data-toggle="tooltip" title="WWCUSTS02D" action="displayWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_WWCUSTS02D_R4 }}</button>
+ 								<button id="CUSTMNT1" data-toggle="tooltip" title="CUSTMNT1" action="customerMaintenanceWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_CUSTMNT1 }}</button>
+ 								<button id="WWCONHDR" data-toggle="tooltip" title="WWCONHDR" action="ordersWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_WWCONHDR }}</button>
+ 								<button id="WWTRNHST" data-toggle="tooltip" title="WWTRNHST" action="transHistWWCUSTS01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCUSTS01G_WWTRNHST }}</button>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 				<async-operation-indicator />
+ 			</div>
+ 		</section>
+ 	</div>
+</div>

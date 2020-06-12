@@ -1,0 +1,199 @@
+<business-messages></business-messages>
+<div ng-init="init()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Customer Detail Maintenance</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control CustomerDetailMaintenanceEntryPanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Customer_No" class="control-label col-md-11 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Customer_No {{ pgmLogicCtrlStyle('Xwbccd', false, false) }}" for="xwbccd">{{ consts.CUSTMNT101D_Customer_No }}</label>
+										<div class="col-md-11 col-md-offset-9">
+											<input type="text" id="xwbccd" name="swbccd" ng-model="stateVariable.swbccd" title="swbccd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwbccd {{ pgmLogicCtrlStyle('Xwbccd', false, false) }}" tabindex="1" ng-style="style()" maxlength="11" ng-readonly="pgmLogicCtrlReadOnly('Xwbccd', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Customer_Name" class="control-label col-md-13 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Customer_Name {{ pgmLogicCtrlStyle('Xwg4tx', false, false) }}" for="xwg4tx">{{ consts.CUSTMNT101D_Customer_Name }}</label>
+										<div class="col-md-40 col-md-offset-7">
+											<input type="text" id="xwg4tx" name="swg4tx" ng-model="stateVariable.swg4tx" title="swg4tx" class="form-control CustomerDetailMaintenanceEntryPanel_Xwg4tx {{ pgmLogicCtrlStyle('Xwg4tx', false, false) }}" tabindex="2" ng-style="style()" maxlength="40" ng-readonly="pgmLogicCtrlReadOnly('Xwg4tx', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Statement_Account" class="control-label col-md-17 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Statement_Account {{ pgmLogicCtrlStyle('Xwb2cd', false, false) }}" for="xwb2cd">{{ consts.CUSTMNT101D_Statement_Account }}</label>
+										<div class="col-md-11 col-md-offset-3">
+											<input type="text" id="xwb2cd" name="swb2cd" ng-model="stateVariable.swb2cd" title="swb2cd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwb2cd {{ pgmLogicCtrlStyle('Xwb2cd', false, false) }}" tabindex="3" ng-style="style()" maxlength="11" ng-readonly="pgmLogicCtrlReadOnly('Xwb2cd', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Related_Account" class="control-label col-md-15 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Related_Account {{ pgmLogicCtrlStyle('Xwb3cd', false, false) }}" for="xwb3cd">{{ consts.CUSTMNT101D_Related_Account }}</label>
+										<div class="col-md-11 col-md-offset-5">
+											<input type="text" id="xwb3cd" name="swb3cd" ng-model="stateVariable.swb3cd" title="swb3cd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwb3cd {{ pgmLogicCtrlStyle('Xwb3cd', false, false) }}" tabindex="4" ng-style="style()" maxlength="11" ng-readonly="pgmLogicCtrlReadOnly('Xwb3cd', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Tax_Reg" class="control-label col-md-7 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Tax_Reg {{ pgmLogicCtrlStyle('Xwhitx', false, false) }}" for="xwhitx">{{ consts.CUSTMNT101D_Tax_Reg }}</label>
+										<div class="col-md-15 col-md-offset-13">
+											<input type="text" id="xwhitx" name="swhitx" ng-model="stateVariable.swhitx" title="swhitx" class="form-control CustomerDetailMaintenanceEntryPanel_Xwhitx {{ pgmLogicCtrlStyle('Xwhitx', false, false) }}" tabindex="5" ng-style="style()" maxlength="15" ng-readonly="pgmLogicCtrlReadOnly('Xwhitx', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Bank" class="control-label col-md-4 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Bank {{ pgmLogicCtrlStyle('Xwe0nb', false, false) }}" for="xwe0nb">{{ consts.CUSTMNT101D_Bank }}</label>
+										<div class="col-md-13 col-md-offset-16">
+											<input type="text" id="xwe0nb" name="swe0nb" ng-model="stateVariable.swe0nb" title="swe0nb" class="form-control CustomerDetailMaintenanceEntryPanel_Xwe0nb {{ pgmLogicCtrlStyle('Xwe0nb', false, false) }}" tabindex="6" ng-style="style()" style="text-align: right" maxlength="9" mask-number="9, 0" ng-readonly="pgmLogicCtrlReadOnly('Xwe0nb', false, false)" convert-number modelformat="000000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Bank_A_c" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Bank_A_c {{ pgmLogicCtrlStyle('Xwjun0', false, false) }}" for="xwjun0">{{ consts.CUSTMNT101D_Bank_A_c }}</label>
+										<div class="col-md-15 col-md-offset-12">
+											<input type="text" id="xwjun0" name="swjun0" ng-model="stateVariable.swjun0" title="swjun0" class="form-control CustomerDetailMaintenanceEntryPanel_Xwjun0 {{ pgmLogicCtrlStyle('Xwjun0', false, false) }}" tabindex="7" ng-style="style()" style="text-align: right" maxlength="15" mask-number="15, 0" ng-readonly="pgmLogicCtrlReadOnly('Xwjun0', false, false)" convert-number modelformat="000000000000000" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenanceEntryPanel_Forex" class="control-label col-md-5 col-md-offset-7 CustomerDetailMaintenanceEntryPanel_Forex {{ pgmLogicCtrlStyle('Xwdvcd', false, false) }}" for="xwdvcd">{{ consts.CUSTMNT101D_Forex }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwdvcd" name="swdvcd" ng-model="stateVariable.swdvcd" title="swdvcd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwdvcd {{ pgmLogicCtrlStyle('Xwdvcd', false, false) }}" tabindex="8" ng-style="style()" maxlength="3" ng-readonly="pgmLogicCtrlReadOnly('Xwdvcd', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_CusGrp" class="control-label col-md-6 col-md-offset-2 promptFld CustomerDetailMaintenanceEntryPanel_CusGrp {{ pgmLogicCtrlStyle('Xwbncd', false, false) }}" for="xwbncd">{{ consts.CUSTMNT101D_CusGrp }}</label>
+										<div class="col-md-8 col-md-offset-14">
+											<div class="input-group">
+											<input type="text" id="xwbncd" name="swbncd" ng-model="stateVariable.swbncd" title="swbncd" class="form-control promptFld CustomerDetailMaintenanceEntryPanel_Xwbncd {{ pgmLogicCtrlStyle('Xwbncd', false, false) }}" tabindex="9" ng-style="style()" maxlength="2" ui-keydown="{'shift-191':'prompt(\'CUSGRSEL01D\', \'swbncd,swkhtx\')'}" ng-readonly="pgmLogicCtrlReadOnly('Xwbncd', false, false)" uppercase />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="CUSGRSEL01D" ng-click="prompt('CUSGRSEL01D', 'swbncd,swkhtx')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-40 col-md-offset--3">
+											<input type="text" id="xwkhtx" name="swkhtx" ng-model="stateVariable.swkhtx" title="swkhtx" class="form-control CustomerDetailMaintenanceEntryPanel_CUSGRP_Xwkhtx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Rep" class="control-label col-md-3 col-md-offset-2 promptFld CustomerDetailMaintenanceEntryPanel_Rep {{ pgmLogicCtrlStyle('Person', false, false) }}" for="person">{{ consts.CUSTMNT101D_Rep }}</label>
+										<div class="col-md-9 col-md-offset-17">
+											<div class="input-group">
+											<input type="text" id="person" name="sperson" ng-model="stateVariable.sperson" title="sperson" class="form-control promptFld CustomerDetailMaintenanceEntryPanel_Person {{ pgmLogicCtrlStyle('Person', false, false) }}" tabindex="10" ng-style="style()" maxlength="3" ui-keydown="{'shift-191':'prompt(\'SLMENSEL01D\', \'sperson,pname\')'}" ng-readonly="pgmLogicCtrlReadOnly('Person', false, false)" uppercase />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="SLMENSEL01D" ng-click="prompt('SLMENSEL01D', 'sperson,pname')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-34 col-md-offset--4">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control CustomerDetailMaintenanceEntryPanel_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Distributor" class="control-label col-md-11 col-md-offset-2 promptFld CustomerDetailMaintenanceEntryPanel_Distributor {{ pgmLogicCtrlStyle('Dsdcde', false, false) }}" for="dsdcde">{{ consts.CUSTMNT101D_Distributor }}</label>
+										<div class="col-md-8 col-md-offset-9">
+											<div class="input-group">
+											<input type="text" id="dsdcde" name="sdsdcde" ng-model="stateVariable.sdsdcde" title="sdsdcde" class="form-control promptFld CustomerDetailMaintenanceEntryPanel_Dsdcde {{ pgmLogicCtrlStyle('Dsdcde', false, false) }}" tabindex="11" ng-style="style()" maxlength="2" ui-keydown="{'shift-191':'prompt(\'DISTSSEL01D\', \'sdsdcde,dname\')'}" ng-readonly="pgmLogicCtrlReadOnly('Dsdcde', false, false)" uppercase />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="DISTSSEL01D" ng-click="prompt('DISTSSEL01D', 'sdsdcde,dname')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-34 col-md-offset--3">
+											<input type="text" id="dname" name="dname" ng-model="stateVariable.dname" title="dname" class="form-control CustomerDetailMaintenanceEntryPanel_DISTS_Dname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Credit_Limit" class="control-label col-md-12 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Credit_Limit {{ pgmLogicCtrlStyle('Xwgiva', false, false) }}" for="xwgiva">{{ consts.CUSTMNT101D_Credit_Limit }}</label>
+										<div class="col-md-17 col-md-offset-8">
+											<input type="text" id="xwgiva" name="swgiva" ng-model="stateVariable.swgiva" title="swgiva" class="form-control CustomerDetailMaintenanceEntryPanel_Xwgiva {{ pgmLogicCtrlStyle('Xwgiva', false, false) }}" tabindex="12" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgiva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenanceEntryPanel_Terms" class="control-label col-md-5 col-md-offset-5 CustomerDetailMaintenanceEntryPanel_Terms {{ pgmLogicCtrlStyle('Xwbtcd', false, false) }}" for="xwbtcd">{{ consts.CUSTMNT101D_Terms }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwbtcd" name="swbtcd" ng-model="stateVariable.swbtcd" title="swbtcd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwbtcd {{ pgmLogicCtrlStyle('Xwbtcd', false, false) }}" tabindex="13" ng-style="style()" maxlength="3" ng-readonly="pgmLogicCtrlReadOnly('Xwbtcd', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Stl_Dsc" class="control-label col-md-7 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Stl_Dsc {{ pgmLogicCtrlStyle('Xwaocd', false, false) }}" for="xwaocd">{{ consts.CUSTMNT101D_Stl_Dsc }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwaocd" name="swaocd" ng-model="stateVariable.swaocd" title="swaocd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwaocd {{ pgmLogicCtrlStyle('Xwaocd', false, false) }}" tabindex="14" ng-style="style()" maxlength="3" ng-readonly="pgmLogicCtrlReadOnly('Xwaocd', false, false)" uppercase />
+										</div>
+										<label id="CustomerDetailMaintenanceEntryPanel_Int" class="control-label col-md-3 col-md-offset-16 CustomerDetailMaintenanceEntryPanel_Int {{ pgmLogicCtrlStyle('Xwbbcd', false, false) }}" for="xwbbcd">{{ consts.CUSTMNT101D_Int }}</label>
+										<div class="col-md-6 col-md-offset-15">
+											<input type="text" id="xwbbcd" name="swbbcd" ng-model="stateVariable.swbbcd" title="swbbcd" class="form-control CustomerDetailMaintenanceEntryPanel_Xwbbcd {{ pgmLogicCtrlStyle('Xwbbcd', false, false) }}" tabindex="15" ng-style="style()" maxlength="3" ng-readonly="pgmLogicCtrlReadOnly('Xwbbcd', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Cr_Guarantee" class="control-label col-md-12 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Cr_Guarantee {{ pgmLogicCtrlStyle('Xwg4t0', false, false) }}" for="xwg4t0">{{ consts.CUSTMNT101D_Cr_Guarantee }}</label>
+										<div class="col-md-14 col-md-offset-8">
+											<input type="text" id="xwg4t0" name="swg4t0" ng-model="stateVariable.swg4t0" title="swg4t0" class="form-control CustomerDetailMaintenanceEntryPanel_Xwg4t0 {{ pgmLogicCtrlStyle('Xwg4t0', false, false) }}" tabindex="16" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwg4t0', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_B_O" class="control-label col-md-3 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_B_O {{ pgmLogicCtrlStyle('Xwc7st', false, false) }}" for="xwc7st">{{ consts.CUSTMNT101D_B_O }}</label>
+										<div class="col-md-6 col-md-offset-17">
+											<input type="text" id="xwc7st" name="swc7st" ng-model="stateVariable.swc7st" title="swc7st" class="form-control CustomerDetailMaintenanceEntryPanel_Xwc7st {{ pgmLogicCtrlStyle('Xwc7st', false, false) }}" tabindex="17" ng-style="style()" maxlength="1" ng-readonly="pgmLogicCtrlReadOnly('Xwc7st', false, false)" uppercase />
+										</div>
+										<label id="CustomerDetailMaintenanceEntryPanel_Lang" class="control-label col-md-4 col-md-offset-16 CustomerDetailMaintenanceEntryPanel_Lang {{ pgmLogicCtrlStyle('Xwdast', false, false) }}" for="xwdast">{{ consts.CUSTMNT101D_Lang }}</label>
+										<div class="col-md-6 col-md-offset-14">
+											<input type="text" id="xwdast" name="swdast" ng-model="stateVariable.swdast" title="swdast" class="form-control CustomerDetailMaintenanceEntryPanel_Xwdast {{ pgmLogicCtrlStyle('Xwdast', false, false) }}" tabindex="18" ng-style="style()" maxlength="1" ng-readonly="pgmLogicCtrlReadOnly('Xwdast', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Date_Loaded" class="control-label col-md-11 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Date_Loaded {{ pgmLogicCtrlStyle('Xwbpd0', false, false) }}" for="xwbpd0">{{ consts.CUSTMNT101D_Date_Loaded }}</label>
+										<div class="col-md-14 col-md-offset-9">
+											<input type="text" id="xwbpd0" name="swbpd0" ng-model="stateVariable.swbpd0" title="swbpd0" class="form-control CustomerDetailMaintenanceEntryPanel_Xwbpd0 {{ pgmLogicCtrlStyle('Xwbpd0', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="19" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwbpd0', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+										<label id="CustomerDetailMaintenanceEntryPanel_Chg_Date" class="control-label col-md-8 col-md-offset-8 CustomerDetailMaintenanceEntryPanel_Chg_Date {{ pgmLogicCtrlStyle('Xwbad0', false, false) }}" for="xwbad0">{{ consts.CUSTMNT101D_Chg_Date }}</label>
+										<div class="col-md-14 col-md-offset-10">
+											<input type="text" id="xwbad0" name="swbad0" ng-model="stateVariable.swbad0" title="swbad0" class="form-control CustomerDetailMaintenanceEntryPanel_Xwbad0 {{ pgmLogicCtrlStyle('Xwbad0', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="20" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwbad0', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenanceEntryPanel_Last_Sale" class="control-label col-md-9 col-md-offset-2 CustomerDetailMaintenanceEntryPanel_Last_Sale {{ pgmLogicCtrlStyle('Xwardt', false, false) }}" for="xwardt">{{ consts.CUSTMNT101D_Last_Sale }}</label>
+										<div class="col-md-14 col-md-offset-11">
+											<input type="text" id="xwardt" name="swardt" ng-model="stateVariable.swardt" title="swardt" class="form-control CustomerDetailMaintenanceEntryPanel_Xwardt {{ pgmLogicCtrlStyle('Xwardt', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="21" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwardt', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+									<input type="hidden" id="sfield" value="stateVariable.sfield" title="Sfield" tabindex="22" class="hidden" maxlength="10" />
+									<input type="hidden" id="recnam" value="stateVariable.recnam" title="Recnam" tabindex="23" class="hidden" maxlength="10" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitRecord()" visible="submitBtnToRender()">Submit</button>
+								<button id="confirm" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="confirmationButtonRequired()">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

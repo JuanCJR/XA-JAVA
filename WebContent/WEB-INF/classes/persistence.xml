@@ -1,0 +1,20 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+   version="1.0">
+	<persistence-unit name="persistence" transaction-type="RESOURCE_LOCAL">
+		<class>acdemxaMvcprocess.data.ContractDetail</class>
+		<class>acdemxaMvcprocess.data.Purchases</class>
+		<class>acdemxaMvcprocess.data.ProductMaster</class>
+		<class>acdemxaMvcprocess.data.StoreMaster</class>
+		<class>acdemxaMvcprocess.data.OrderStatusDescription</class>
+		<class>acdemxaMvcprocess.data.Salespersons</class>
+		<class>acdemxaMvcprocess.data.Distributors</class>
+		<class>acdemxaMvcprocess.data.TransactionTypeDescription</class>
+		<class>acdemxaMvcprocess.data.ContractHeader</class>
+		<class>acdemxaMvcprocess.data.StockBalances</class>
+		<class>acdemxaMvcprocess.data.TransactionHistory</class>
+		<class>acdemxaMvcprocess.data.CustomerGroups</class>
+		<class>acdemxaMvcprocess.data.Sites</class>
+	</persistence-unit>
+</persistence>

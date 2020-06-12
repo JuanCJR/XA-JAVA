@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+		<context:annotation-config />
+
+		<!--
+		<context:property-placeholder location="classpath:datasource.properties"/>
+		-->
+		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    		<property name="location" value="classpath:datasource.properties"/>
+		</bean>
+		<import resource="applicationContext-datasource.xml" />
+
+		<!--**** Hibernate Group DAO Setup ****-->
+		<!--
+			Need one Search Processor and one Metadata Util per persistence unit
+			(i.e. EntityManagerFactory). We're wiring these to the Generic DAOs
+			using an @Autowired and @PersistenceContext annotations in
+			TableDAOImpl.
+		-->
+		<bean id="searchProcessor" class="com.googlecode.genericdao.search.jpa.JPASearchProcessor">
+			<constructor-arg ref="metadataUtil" />
+		</bean>
+
+		<bean id="metadataUtil" class="com.googlecode.genericdao.search.jpa.hibernate.HibernateMetadataUtil"
+			factory-method="getInstanceForEntityManagerFactory">
+			<constructor-arg ref="entityManagerFactory" />
+		</bean>
+
+		<bean id="loggingAspect" class="com.databorough.utils.LoggingAspect"/>
+		<aop:config>
+			<aop:aspect ref="loggingAspect">
+				<aop:pointcut id="loggingPointcut" expression="execution(* acdemxaMvcprocess.dao.*DAOImpl.*(..))"/>
+				<aop:around pointcut-ref="loggingPointcut" method="log"/>
+			</aop:aspect>
+		</aop:config>
+
+		<!-- Loads Application context -->
+		<bean id="springFrameworkCtx" class="acdemxaMvcprocess.daoservices.SpringFramework"/>
+
+		<!--JMS Bean -->
+		<bean id="jms" class="com.databorough.utils.JMSUtils">
+			<property name="jmsTemplate">
+				<ref bean="jmsQueueTemplate" />
+			</property>
+		</bean>
+
+		<!-- Loads Spring Batch programs -->
+		<import resource="batchConfig.xml"/>
+
+		<!-- Loads Servlet context -->
+		<bean id="servletCtx" class="com.databorough.utils.ServletContextProvider"></bean>
+
+	<!--**** Application components ****-->
+	<bean id="ContractDetailService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="ContractDetailDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ContractDetail"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.ContractDetailId"/>
+		<constructor-arg index="2">
+			<ref bean="ContractDetailDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="ContractDetailDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ContractDetail"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.ContractDetailId"/>
+	</bean>
+
+	<bean id="PurchasesService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="PurchasesDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Purchases"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="PurchasesDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="PurchasesDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Purchases"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="ProductMasterService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="ProductMasterDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ProductMaster"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="ProductMasterDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="ProductMasterDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ProductMaster"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="StoreMasterService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="StoreMasterDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.StoreMaster"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="StoreMasterDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="StoreMasterDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.StoreMaster"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="OrderStatusDescriptionService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="OrderStatusDescriptionDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.OrderStatusDescription"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="OrderStatusDescriptionDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="OrderStatusDescriptionDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.OrderStatusDescription"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="SalespersonsService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="SalespersonsDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Salespersons"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="SalespersonsDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="SalespersonsDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Salespersons"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="DistributorsService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="DistributorsDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Distributors"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="DistributorsDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="DistributorsDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Distributors"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="TransactionTypeDescriptionService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="TransactionTypeDescriptionDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.TransactionTypeDescription"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="TransactionTypeDescriptionDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="TransactionTypeDescriptionDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.TransactionTypeDescription"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="ContractHeaderService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="ContractHeaderDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ContractHeader"/>
+		<constructor-arg index="1" value="java.lang.Integer"/>
+		<constructor-arg index="2">
+			<ref bean="ContractHeaderDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="ContractHeaderDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.ContractHeader"/>
+		<constructor-arg index="1" value="java.lang.Integer"/>
+	</bean>
+
+	<bean id="StockBalancesService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="StockBalancesDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.StockBalances"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.StockBalancesId"/>
+		<constructor-arg index="2">
+			<ref bean="StockBalancesDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="StockBalancesDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.StockBalances"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.StockBalancesId"/>
+	</bean>
+
+	<bean id="TransactionHistoryService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="TransactionHistoryDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.TransactionHistory"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.TransactionHistoryId"/>
+		<constructor-arg index="2">
+			<ref bean="TransactionHistoryDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="TransactionHistoryDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.TransactionHistory"/>
+		<constructor-arg index="1" value="acdemxaMvcprocess.data.TransactionHistoryId"/>
+	</bean>
+
+	<bean id="CustomerGroupsService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="CustomerGroupsDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.CustomerGroups"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+		<constructor-arg index="2">
+			<ref bean="CustomerGroupsDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="CustomerGroupsDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.CustomerGroups"/>
+		<constructor-arg index="1" value="java.lang.String"/>
+	</bean>
+
+	<bean id="SitesService" class="acdemxaMvcprocess.daoservices.TableDaoServiceImpl" depends-on="SitesDAO">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Sites"/>
+		<constructor-arg index="1" value="java.lang.Integer"/>
+		<constructor-arg index="2">
+			<ref bean="SitesDAO" />
+		</constructor-arg>
+	</bean>
+	<bean id="SitesDAO" class="acdemxaMvcprocess.dao.TableDAOImpl">
+		<constructor-arg index="0" value="acdemxaMvcprocess.data.Sites"/>
+		<constructor-arg index="1" value="java.lang.Integer"/>
+	</bean>
+
+</beans>

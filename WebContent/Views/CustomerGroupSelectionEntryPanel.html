@@ -1,0 +1,54 @@
+<div class="modal-header">
+	<button ng-click="cancelPress()" type="button" class="close" aria-hidden="true">&times;</button>
+	<h4 class="modal-title">Please select:</h4>
+</div>
+<div class="modal-body">
+<business-messages></business-messages>
+<div ng-init="init()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-lg-80 connectedSortable">
+			<div class="box box-primary grid-box">
+				<div class="box-header">
+					<div class="pull-right box-tools">
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Previous" ng-click="previousPage()" ng-show="hasPreviousPage()"><i class="fa fa-chevron-left"></i></button>
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Next" ng-click="nextPage(0)" ng-show="hasNextPage()"><i class="fa fa-chevron-right"></i></button>
+					</div>
+				</div>
+				<div class="box-body">
+ 					<div class="row">
+						<div class="col-xs-80">
+							<div class="table-responsive">
+								<!-- Display filter fields. Valid position values are: above <table>, inside div.box-tools, above root div.row -->
+								<grid-filter ng-show="filterFlds.length != 0">
+									<input ng-model="filterData.xwbncd" ui-keypress="{'enter':'applyFilter()'}" class="form-control input-sm" type="text" id="xwbncd" maxlength="2" uppercase>
+								</grid-filter>
+								<table class="prompt-grid table table-bordered table-striped table-hover preserve-grid-layout">
+									<thead>
+										<tr>
+											<th></th>
+											<th class="col-md-3" ng-show="true">{{ consts.CUSGRSEL01G__1 }}</th>
+											<th class="col-md-76" ng-show="true">{{ consts.CUSGRSEL01G__2 }}</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="row in gridVariable" ng-class-even="'alternate-row'">
+											<td><input type="checkbox" icheck ng-model="row.checked" /></td>
+											<td>{{ row.xwbncd | uppercase }}</td>
+											<td>{{ row.xwkhtx }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button ng-click="cancelPress()" type="button" class="btn btn-primary btn-sm">Cancel</button>
+	<button ng-click="promptSelect()" type="button" class="btn btn-primary btn-sm">Select</button>
+</div>
+<async-operation-indicator />

@@ -1,0 +1,170 @@
+<business-messages></business-messages>
+<div ng-init="loadFlatData()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Work with transaction history</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-0">
+											<input type="text" id="zzpgm" name="zzpgm" ng-model="stateVariable.zzpgm" title="zzpgm" class="form-control WorkWithTransactionHistoryPanel4_Zzpgm" tabindex="-1" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithTransactionHistoryPanel4_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+ 										<label id="WorkWithTransactionHistoryPanel4_CONFIRMATION_Const" class="control-label col-md-12 col-md-offset-2 WorkWithTransactionHistoryPanel4_CONFIRMATION_Const">{{ consts.WWTRNHST04D_CONFIRMATION_Const }}</label>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Customer" class="control-label col-md-9 col-md-offset-4 WorkWithTransactionHistoryPanel4_Customer" for="xwbccd">{{ consts.WWTRNHST04D_Customer }}</label>
+										<div class="col-md-11 col-md-offset-15">
+											<input type="text" id="xwbccd" name="xwbccd" ng-model="stateVariable.xwbccd" title="xwbccd" class="form-control WorkWithTransactionHistoryPanel4_Xwbccd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+										<div class="col-md-40 col-md-offset-1">
+											<input type="text" id="xwg4tx" name="xwg4tx" ng-model="stateVariable.xwg4tx" title="xwg4tx" class="form-control WorkWithTransactionHistoryPanel4_CUSTS_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Period" class="control-label col-md-7 col-md-offset-4 WorkWithTransactionHistoryPanel4_Period" for="xwe4nb">{{ consts.WWTRNHST04D_Period }}</label>
+										<div class="col-md-12 col-md-offset-17">
+											<input type="text" id="xwe4nb" name="xwe4nb" ng-model="stateVariable.xwe4nb" title="xwe4nb" class="form-control WorkWithTransactionHistoryPanel4_Xwe4nb" tabindex="-1" ng-style="" style="text-align: right" maxlength="8" mask-number="6, 0" ng-readonly="true" convert-number modelformat="000000" viewformat="" />
+										</div>
+										<label id="WorkWithTransactionHistoryPanel4_Trn" class="control-label col-md-4 col-md-offset-4 WorkWithTransactionHistoryPanel4_Trn" for="xwricd">{{ consts.WWTRNHST04D_Trn }}</label>
+										<div class="col-md-6 col-md-offset-20">
+											<input type="text" id="xwricd" name="xwricd" ng-model="stateVariable.xwricd" title="xwricd" class="form-control WorkWithTransactionHistoryPanel4_Xwricd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Trn_Hst_Date" class="control-label col-md-13 col-md-offset-4 WorkWithTransactionHistoryPanel4_Trn_Hst_Date" for="xwdldt">{{ consts.WWTRNHST04D_Trn_Hst_Date }}</label>
+										<div class="col-md-14 col-md-offset-11">
+											<input type="text" id="xwdldt" name="xwdldt" ng-model="stateVariable.xwdldt" title="xwdldt" class="form-control WorkWithTransactionHistoryPanel4_Xwdldt" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+										<label id="WorkWithTransactionHistoryPanel4_Trn_Hst_Seq" class="control-label col-md-12 col-md-offset-2 WorkWithTransactionHistoryPanel4_Trn_Hst_Seq" for="xwc8dt">{{ consts.WWTRNHST04D_Trn_Hst_Seq }}</label>
+										<div class="col-md-11 col-md-offset-12">
+											<input type="text" id="xwc8dt" name="xwc8dt" ng-model="stateVariable.xwc8dt" title="xwc8dt" class="form-control WorkWithTransactionHistoryPanel4_Xwc8dt" tabindex="-1" ng-style="" style="text-align: right" maxlength="11" mask-number="11, 0" ng-readonly="true" convert-number modelformat="00000000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_DGrp" class="control-label col-md-5 col-md-offset-4 WorkWithTransactionHistoryPanel4_DGrp" for="xwbncd">{{ consts.WWTRNHST04D_DGrp }}</label>
+										<div class="col-md-5 col-md-offset-19">
+											<input type="text" id="xwbncd" name="xwbncd" ng-model="stateVariable.xwbncd" title="xwbncd" class="form-control WorkWithTransactionHistoryPanel4_Xwbncd" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Del_Area" class="control-label col-md-9 col-md-offset-4 WorkWithTransactionHistoryPanel4_Del_Area" for="xwbdcd">{{ consts.WWTRNHST04D_Del_Area }}</label>
+										<div class="col-md-6 col-md-offset-15">
+											<input type="text" id="xwbdcd" name="xwbdcd" ng-model="stateVariable.xwbdcd" title="xwbdcd" class="form-control WorkWithTransactionHistoryPanel4_Xwbdcd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Representative" class="control-label col-md-14 col-md-offset-4 WorkWithTransactionHistoryPanel4_Representative" for="person">{{ consts.WWTRNHST04D_Representative }}</label>
+										<div class="col-md-6 col-md-offset-10">
+											<input type="text" id="person" name="person" ng-model="stateVariable.person" title="person" class="form-control WorkWithTransactionHistoryPanel4_Person" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+										<div class="col-md-34 col-md-offset--1">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control WorkWithTransactionHistoryPanel4_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Store" class="control-label col-md-6 col-md-offset-4 WorkWithTransactionHistoryPanel4_Store" for="xwaacs">{{ consts.WWTRNHST04D_Store }}</label>
+										<div class="col-md-11 col-md-offset-18">
+											<input type="text" id="xwaacs" name="xwaacs" ng-model="stateVariable.xwaacs" title="xwaacs" class="form-control WorkWithTransactionHistoryPanel4_Xwaacs" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Product" class="control-label col-md-8 col-md-offset-4 WorkWithTransactionHistoryPanel4_Product" for="xwabcd">{{ consts.WWTRNHST04D_Product }}</label>
+										<div class="col-md-20 col-md-offset-16">
+											<input type="text" id="xwabcd" name="xwabcd" ng-model="stateVariable.xwabcd" title="xwabcd" class="form-control WorkWithTransactionHistoryPanel4_Xwabcd" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Stk_Grp_1" class="control-label col-md-10 col-md-offset-4 WorkWithTransactionHistoryPanel4_Stk_Grp_1" for="xwagcd">{{ consts.WWTRNHST04D_Stk_Grp_1 }}</label>
+										<div class="col-md-5 col-md-offset-14">
+											<input type="text" id="xwagcd" name="xwagcd" ng-model="stateVariable.xwagcd" title="xwagcd" class="form-control WorkWithTransactionHistoryPanel4_Xwagcd" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Stk_Grp_2" class="control-label col-md-10 col-md-offset-4 WorkWithTransactionHistoryPanel4_Stk_Grp_2" for="xwahcd">{{ consts.WWTRNHST04D_Stk_Grp_2 }}</label>
+										<div class="col-md-5 col-md-offset-14">
+											<input type="text" id="xwahcd" name="xwahcd" ng-model="stateVariable.xwahcd" title="xwahcd" class="form-control WorkWithTransactionHistoryPanel4_Xwahcd" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Stk_Grp_3" class="control-label col-md-10 col-md-offset-4 WorkWithTransactionHistoryPanel4_Stk_Grp_3" for="xwaicd">{{ consts.WWTRNHST04D_Stk_Grp_3 }}</label>
+										<div class="col-md-5 col-md-offset-14">
+											<input type="text" id="xwaicd" name="xwaicd" ng-model="stateVariable.xwaicd" title="xwaicd" class="form-control WorkWithTransactionHistoryPanel4_Xwaicd" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Doc_Ref" class="control-label col-md-8 col-md-offset-4 WorkWithTransactionHistoryPanel4_Doc_Ref" for="xwt8tx">{{ consts.WWTRNHST04D_Doc_Ref }}</label>
+										<div class="col-md-15 col-md-offset-16">
+											<input type="text" id="xwt8tx" name="xwt8tx" ng-model="stateVariable.xwt8tx" title="xwt8tx" class="form-control WorkWithTransactionHistoryPanel4_Xwt8tx" tabindex="-1" ng-style="" maxlength="15" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Contract" class="control-label col-md-9 col-md-offset-4 WorkWithTransactionHistoryPanel4_Contract" for="xwordn">{{ consts.WWTRNHST04D_Contract }}</label>
+										<div class="col-md-9 col-md-offset-15">
+											<input type="text" id="xwordn" name="xwordn" ng-model="stateVariable.xwordn" title="xwordn" class="form-control WorkWithTransactionHistoryPanel4_Xwordn" tabindex="-1" ng-style="" style="text-align: right" maxlength="6" mask-number="6, 0" ng-readonly="true" convert-number modelformat="000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Quantity" class="control-label col-md-9 col-md-offset-4 WorkWithTransactionHistoryPanel4_Quantity" for="xwa5qt">{{ consts.WWTRNHST04D_Quantity }}</label>
+										<div class="col-md-11 col-md-offset-15">
+											<input type="text" id="xwa5qt" name="xwa5qt" ng-model="stateVariable.xwa5qt" title="xwa5qt" class="form-control WorkWithTransactionHistoryPanel4_Xwa5qt" tabindex="-1" ng-style="" style="text-align: right" maxlength="11" mask-number="9, 2" ng-readonly="true" convert-number modelformat="0000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryPanel4_Value" class="control-label col-md-6 col-md-offset-4 WorkWithTransactionHistoryPanel4_Value" for="xwvalu">{{ consts.WWTRNHST04D_Value }}</label>
+										<div class="col-md-14 col-md-offset-18">
+											<input type="text" id="xwvalu" name="xwvalu" ng-model="stateVariable.xwvalu" title="xwvalu" class="form-control WorkWithTransactionHistoryPanel4_Xwvalu" tabindex="-1" ng-style="" style="text-align: right" maxlength="14" mask-number="13, 2" ng-readonly="true" convert-number modelformat="00000000000.00" viewformat="" />
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitRecord()" visible="submitBtnToRender()">Submit</button>
+								<button id="confirm" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="confirmationButtonRequired()">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

@@ -1,0 +1,292 @@
+// Misc: mixins
+//==============
+
+//Mixin used to get text color depending on the background color on which the text is to be displayed
+.contrast-color-variant(@color){
+    @text-color: lighten(@color, 90%);
+}
+
+.contrast-color-variant(@color) when (lightness(@color) > 70%){
+      @text-color: darken(@color, 90%);
+}
+
+//Changes the skin/theme based on a solid color
+.solid-skin-variant(@color){
+    /* navbar */
+    .navbar {
+        .navbar-solid-variant(@color);
+        
+        /*User menu*/
+        .navbar-nav > .user-menu {
+            > .dropdown-menu {
+                // Header menu 
+                > li.user-header {
+                    background: @color;
+                    > p {
+                        .contrast-color-variant(@color);
+                        color: @text-color;
+                        text-shadow: 2px 2px 3px contrast(@text-color);
+                    }
+                }
+                // Menu Body 
+                > li.user-body {
+                    > div > a {
+                        color: @color;
+                    }
+                }
+                // Menu Footer 
+                > li.user-footer {
+                    background-color: @body-bg;
+                }
+            }
+        }
+    }
+    
+    /* logo */
+    .logo {
+        .logo-solid-variant(darken(@color, 5%));
+    }
+
+    /*Modal dialog*/
+    .modal{
+        .modal-header{
+            background: @color;
+            box-shadow: inset 0px -3px 0px rgba(red(contrast(@color)),green(contrast(@color)),blue(contrast(@color)),0.2);
+            .contrast-color-variant(@color);
+            color: @text-color;
+            button.close{
+                .contrast-color-variant(@color);
+                color: @text-color;
+            }
+        }
+    }
+    
+    /*Primary Boxes*/
+    .box{
+        &.box-solid{
+            &.box-primary{
+                .box-solid-variant(@color);
+            }
+        }
+        &.box-primary{
+            border-top-color: @color;
+        }
+    }
+    
+    /*Primary Buttons*/
+    .btn{
+        &.btn-primary {
+            .contrast-color-variant(@color);
+            color: @text-color;
+            background-color: @color;
+            border-color: darken(@color, 5%);
+            &:hover, &:active, &.hover {
+                background-color: darken(@color, 5%);
+            }
+        }
+    }
+}
+
+//Changes the skin/theme based on a gradient
+.gradient-skin-variant(@primaryColor, @gradient){
+    /* navbar */
+    .navbar {
+        .navbar-gradient-variant(@primaryColor, @gradient);
+        
+        /*User menu*/
+        .navbar-nav > .user-menu {
+            > .dropdown-menu {
+                // Header menu 
+                > li.user-header {
+                    .background-image(@gradient);
+                    > p {
+                        .contrast-color-variant(@primaryColor);
+                        color: @text-color;
+                        text-shadow: 2px 2px 3px contrast(@text-color);
+                    }
+                }
+                // Menu Body 
+                > li.user-body {
+                    > div > a {
+                        color: @primaryColor;
+                    }
+                }
+                // Menu Footer 
+                > li.user-footer {
+                    background-color: @body-bg;
+                }
+            }
+        }
+    }
+    
+    /* logo */
+    .logo {
+        .logo-gradient-variant(darken(@primaryColor, 5%), @gradient);
+    }
+
+    /*Modal dialog*/
+    .modal{
+        .modal-header{
+            .background-image(@gradient);
+            box-shadow: inset 0px -3px 0px rgba(red(contrast(@primaryColor)),green(contrast(@primaryColor)),blue(contrast(@primaryColor)),0.2);
+            .contrast-color-variant(@primaryColor);
+            color: @text-color;
+            button.close{
+                .contrast-color-variant(@primaryColor);
+                color: @text-color;
+            }
+        }
+    }
+    
+    /*Primary Boxes*/
+    .box{
+        &.box-solid{
+            &.box-primary{
+                .box-gradient-variant(@primaryColor, @gradient);
+            }
+        }
+        &.box-primary{
+            border-top-color: @primaryColor;
+        }
+    }
+    
+    /*Primary Buttons*/
+    .btn{
+        &.btn-primary {
+            .contrast-color-variant(@primaryColor);
+            color: @text-color;
+            .background-image(@gradient);
+            border-color: darken(@primaryColor, 5%);
+            &:hover, &:active, &.hover {
+                background: darken(@primaryColor, 5%);
+            }
+        }
+    }
+}
+
+//Changes the color and the hovering properties of the navbar based on a solid color
+.navbar-solid-variant(@color) {
+    background-color: @color;
+    //Navbar links
+    .nav a {
+        .contrast-color-variant(@color);
+        color: @text-color;
+    }
+
+    .nav > li > a:hover,
+        .nav > li > a:active,
+        .nav > li > a:focus,
+        .nav .open > a,
+        .nav .open > a:hover,
+        .nav .open > a:focus {
+        background: darken(@color, 10%);
+        .contrast-color-variant(@color);
+        color: darken(@text-color, 10%);
+    }
+
+    .navbar-right > .nav {
+        margin-right: 10px;
+    }
+    
+    section{
+        .contrast-color-variant(@color);
+        color: @text-color;
+    }
+}
+
+//Changes the color and the hovering properties of the navbar based on a gradient
+.navbar-gradient-variant(@primaryColor, @gradient) {
+    .background-image(@gradient);
+    //Navbar links
+    .nav a {
+        .contrast-color-variant(@primaryColor);
+        color: @text-color;
+    }
+
+    .nav > li > a:hover,
+        .nav > li > a:active,
+        .nav > li > a:focus,
+        .nav .open > a,
+        .nav .open > a:hover,
+        .nav .open > a:focus {
+        background: darken(@primaryColor, 10%);
+        .contrast-color-variant(@primaryColor);
+        color: darken(@text-color, 10%);
+    }
+
+    .navbar-right > .nav {
+        margin-right: 10px;
+    }
+    
+    section{
+        .contrast-color-variant(@primaryColor);
+        color: @text-color;
+    }
+}
+
+//Logo color variation
+.logo-solid-variant(@color) {
+    background-color: @color;
+    /*border-right: 1px solid darken(@color, 25%);*/
+    .contrast-color-variant(@color);
+    color: @text-color;
+    > a {
+        .contrast-color-variant(@color);
+        color: @text-color;
+    }
+
+    &:hover {
+        background: darken(@color, 1%);
+    }
+}
+
+//Logo gradient variation
+.logo-gradient-variant(@primaryColor, @gradient) {
+    .background-image(@gradient);
+    .contrast-color-variant(@primaryColor);
+    color: @text-color;
+    > a {
+        .contrast-color-variant(@primaryColor);
+        color: @text-color;
+    }
+
+    &:hover {
+        background: darken(@primaryColor, 1%);
+    }
+}
+
+//Box solid color variation creator
+.box-solid-variant(@color) {
+    > .box-header {
+        color: #fff;
+        background: @color;        
+        background-color: @color;   
+        a {
+            color: #444;
+        }
+    }
+}
+
+//Box gradient variation creator
+.box-gradient-variant(@primaryColor, @gradient) {
+    > .box-header {
+        color: #fff;
+        .background-image(@gradient);
+        a {
+            color: #444;
+        }
+    }
+}
+
+//For floating elements
+.clearfix() {
+    &:before,
+        &:after {
+        display: table;
+        content: " ";
+    }
+
+    &:after {
+        clear: both;
+    }
+}

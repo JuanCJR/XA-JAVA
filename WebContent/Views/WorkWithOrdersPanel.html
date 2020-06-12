@@ -1,0 +1,163 @@
+<business-messages></business-messages>
+<div ng-init="loadFlatData()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Work with Orders</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithOrdersPanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-2">
+											<input type="text" id="actdsp" name="actdsp" ng-model="stateVariable.actdsp" title="actdsp" class="form-control WorkWithOrdersPanel_Actdsp" tabindex="-1" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Contract" class="control-label col-md-9 col-md-offset-4 WorkWithOrdersPanel_Contract {{ pgmLogicCtrlStyle('Xwordn', false, false) }}" for="xwordn">{{ consts.WWCONHDR02D_Contract }}</label>
+										<div class="col-md-9 col-md-offset-15">
+											<input type="text" id="xwordn" name="xwordn" ng-model="stateVariable.xwordn" title="xwordn" class="form-control WorkWithOrdersPanel_Xwordn {{ pgmLogicCtrlStyle('Xwordn', false, false) }}" tabindex="1" ng-style="style()" style="text-align: right" maxlength="6" mask-number="6, 0" ng-readonly="pgmLogicCtrlReadOnly('Xwordn', false, false)" convert-number modelformat="000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Customer" class="control-label col-md-8 col-md-offset-4 promptFld WorkWithOrdersPanel_Customer {{ pgmLogicCtrlStyle('Xwbccd', false, false) }}" for="xwbccd">{{ consts.WWCONHDR02D_Customer }}</label>
+										<div class="col-md-11 col-md-offset-16">
+											<div class="input-group">
+											<input type="text" id="xwbccd" name="xwbccd" ng-model="stateVariable.xwbccd" title="xwbccd" class="form-control promptFld WorkWithOrdersPanel_Xwbccd {{ pgmLogicCtrlStyle('Xwbccd', false, false) }}" tabindex="2" ng-style="style()" maxlength="11" ui-keydown="{'shift-191':'prompt(\'CUSTSSEL01D\', \'xwbccd,xwg4tx\')'}" ng-readonly="pgmLogicCtrlReadOnly('Xwbccd', false, false)" />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="CUSTSSEL01D" ng-click="prompt('CUSTSSEL01D', 'xwbccd,xwg4tx')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-40 col-md-offset-1">
+											<input type="text" id="xwg4tx" name="xwg4tx" ng-model="stateVariable.xwg4tx" title="xwg4tx" class="form-control WorkWithOrdersPanel_CUSTS_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Customer_Reference" class="control-label col-md-19 col-md-offset-4 WorkWithOrdersPanel_Customer_Reference {{ pgmLogicCtrlStyle('Xwcref', false, false) }}" for="xwcref">{{ consts.WWCONHDR02D_Customer_Reference }}</label>
+										<div class="col-md-20 col-md-offset-5">
+											<input type="text" id="xwcref" name="xwcref" ng-model="stateVariable.xwcref" title="xwcref" class="form-control WorkWithOrdersPanel_Xwcref {{ pgmLogicCtrlStyle('Xwcref', false, false) }}" tabindex="3" ng-style="style()" maxlength="20" ng-readonly="pgmLogicCtrlReadOnly('Xwcref', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Contract_Date" class="control-label col-md-14 col-md-offset-4 WorkWithOrdersPanel_Contract_Date {{ pgmLogicCtrlStyle('Xwdldt', false, false) }}" for="xwdldt">{{ consts.WWCONHDR02D_Contract_Date }}</label>
+										<div class="col-md-14 col-md-offset-10">
+											<input type="text" id="xwdldt" name="xwdldt" ng-model="stateVariable.xwdldt" title="xwdldt" class="form-control WorkWithOrdersPanel_Xwdldt {{ pgmLogicCtrlStyle('Xwdldt', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="4" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwdldt', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+										<label id="WorkWithOrdersPanel_yyyymmdd_Const" class="control-label col-md-10 col-md-offset--2 WorkWithOrdersPanel_yyyymmdd_Const normalStandAloneLabels">{{ consts.WWCONHDR02D_yyyymmdd_Const }}</label>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Status" class="control-label col-md-6 col-md-offset-4 promptFld WorkWithOrdersPanel_Status {{ pgmLogicCtrlStyle('Xwstat', false, false) }}" for="xwstat">{{ consts.WWCONHDR02D_Status }}</label>
+										<div class="col-md-8 col-md-offset-18">
+											<div class="input-group">
+											<input type="text" id="xwstat" name="xwstat" ng-model="stateVariable.xwstat" title="xwstat" class="form-control promptFld WorkWithOrdersPanel_Xwstat {{ pgmLogicCtrlStyle('Xwstat', false, false) }}" tabindex="5" ng-style="style()" maxlength="2" ui-keydown="{'shift-191':'prompt(\'ORDSTSEL01D\', \'xwstat,xwsdsc\')'}" ng-readonly="pgmLogicCtrlReadOnly('Xwstat', false, false)" uppercase />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="ORDSTSEL01D" ng-click="prompt('ORDSTSEL01D', 'xwstat,xwsdsc')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-20 col-md-offset--3">
+											<input type="text" id="xwsdsc" name="xwsdsc" ng-model="stateVariable.xwsdsc" title="xwsdsc" class="form-control WorkWithOrdersPanel_ORDSTS_Xwsdsc" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Representative" class="control-label col-md-14 col-md-offset-4 promptFld WorkWithOrdersPanel_Representative {{ pgmLogicCtrlStyle('Person', false, false) }}" for="person">{{ consts.WWCONHDR02D_Representative }}</label>
+										<div class="col-md-9 col-md-offset-10">
+											<div class="input-group">
+											<input type="text" id="person" name="person" ng-model="stateVariable.person" title="person" class="form-control promptFld WorkWithOrdersPanel_Person {{ pgmLogicCtrlStyle('Person', false, false) }}" tabindex="6" ng-style="style()" maxlength="3" ui-keydown="{'shift-191':'prompt(\'SLMENSEL01D\', \'person,pname\')'}" ng-readonly="pgmLogicCtrlReadOnly('Person', false, false)" uppercase />
+											<span class="input-group-btn">
+												<button  type="button" class="btn btn-default" data-toggle="tooltip" title="SLMENSEL01D" ng-click="prompt('SLMENSEL01D', 'person,pname')" ng-show="buttonToRender()"><i class="fa fa-arrow-circle-down"></i></button>
+											</span>
+											</div>
+										</div>
+										<div class="col-md-34 col-md-offset--4">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control WorkWithOrdersPanel_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Contract_Value" class="control-label col-md-15 col-md-offset-4 WorkWithOrdersPanel_Contract_Value {{ pgmLogicCtrlStyle('Xwtamt', false, false) }}" for="xwtamt">{{ consts.WWCONHDR02D_Contract_Value }}</label>
+										<div class="col-md-18 col-md-offset-9">
+											<input type="text" id="xwtamt" name="xwtamt" ng-model="stateVariable.xwtamt" title="xwtamt" class="form-control WorkWithOrdersPanel_Xwtamt {{ pgmLogicCtrlStyle('Xwtamt', false, false) }}" tabindex="7" ng-style="style()" style="text-align: right" maxlength="18" mask-number="13, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwtamt', false, false)" convert-number modelformat="00000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Address" class="control-label col-md-8 col-md-offset-4 WorkWithOrdersPanel_Address {{ pgmLogicCtrlStyle('Xwadd1', false, false) }}" for="xwadd1">{{ consts.WWCONHDR02D_Address }}</label>
+										<div class="col-md-40 col-md-offset-16">
+											<input type="text" id="xwadd1" name="xwadd1" ng-model="stateVariable.xwadd1" title="xwadd1" class="form-control WorkWithOrdersPanel_Xwadd1 {{ pgmLogicCtrlStyle('Xwadd1', false, false) }}" tabindex="8" ng-style="style()" maxlength="40" ng-readonly="pgmLogicCtrlReadOnly('Xwadd1', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd2" name="xwadd2" ng-model="stateVariable.xwadd2" title="xwadd2" class="form-control WorkWithOrdersPanel_Xwadd2 {{ pgmLogicCtrlStyle('Xwadd2', false, false) }}" tabindex="9" ng-style="style()" maxlength="40" ng-readonly="pgmLogicCtrlReadOnly('Xwadd2', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd3" name="xwadd3" ng-model="stateVariable.xwadd3" title="xwadd3" class="form-control WorkWithOrdersPanel_Xwadd3 {{ pgmLogicCtrlStyle('Xwadd3', false, false) }}" tabindex="10" ng-style="style()" maxlength="40" ng-readonly="pgmLogicCtrlReadOnly('Xwadd3', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd4" name="xwadd4" ng-model="stateVariable.xwadd4" title="xwadd4" class="form-control WorkWithOrdersPanel_Xwadd4 {{ pgmLogicCtrlStyle('Xwadd4', false, false) }}" tabindex="11" ng-style="style()" maxlength="40" ng-readonly="pgmLogicCtrlReadOnly('Xwadd4', false, false)" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Post_Code" class="control-label col-md-10 col-md-offset-4 WorkWithOrdersPanel_Post_Code {{ pgmLogicCtrlStyle('Xwpcde', false, false) }}" for="xwpcde">{{ consts.WWCONHDR02D_Post_Code }}</label>
+										<div class="col-md-14 col-md-offset-14">
+											<input type="text" id="xwpcde" name="xwpcde" ng-model="stateVariable.xwpcde" title="xwpcde" class="form-control WorkWithOrdersPanel_Xwpcde {{ pgmLogicCtrlStyle('Xwpcde', false, false) }}" tabindex="12" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwpcde', false, false)" uppercase />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrdersPanel_Country" class="control-label col-md-8 col-md-offset-4 WorkWithOrdersPanel_Country {{ pgmLogicCtrlStyle('Xwcntr', false, false) }}" for="xwcntr">{{ consts.WWCONHDR02D_Country }}</label>
+										<div class="col-md-6 col-md-offset-16">
+											<input type="text" id="xwcntr" name="xwcntr" ng-model="stateVariable.xwcntr" title="xwcntr" class="form-control WorkWithOrdersPanel_Xwcntr {{ pgmLogicCtrlStyle('Xwcntr', false, false) }}" tabindex="13" ng-style="style()" maxlength="3" ng-readonly="pgmLogicCtrlReadOnly('Xwcntr', false, false)" uppercase />
+										</div>
+									</div>
+									<input type="hidden" id="sfield" value="stateVariable.sfield" title="Sfield" tabindex="14" class="hidden" maxlength="10" />
+									<input type="hidden" id="recnam" value="stateVariable.recnam" title="Recnam" tabindex="15" class="hidden" maxlength="10" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="WWCONDET" title="WWCONDET" data-toggle="tooltip" action="detailLinesWWCONHDR02D()" visible="!add && !confirmationButtonRequired()">{{ consts.WWCONHDR02D_WWCONDET }}</button>
+								<button id="WWCONHDR04D" title="WWCONHDR04D" data-toggle="tooltip" action="confirmWWCONHDR02D()" visible="confirmationButtonRequired()">{{ consts.WWCONHDR02D_WWCONHDR04D }}</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="submitBtnToRender()">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

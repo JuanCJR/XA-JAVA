@@ -1,0 +1,180 @@
+<business-messages></business-messages>
+<div ng-init="loadFlatData()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Work with Customers</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithCustomersPanel4_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+ 										<label id="WorkWithCustomersPanel4_CONFIRMATION_Const" class="control-label col-md-12 col-md-offset-2 WorkWithCustomersPanel4_CONFIRMATION_Const">{{ consts.WWCUSTS04D_CONFIRMATION_Const }}</label>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Customer_No" class="control-label col-md-11 col-md-offset-2 WorkWithCustomersPanel4_Customer_No" for="xwbccd">{{ consts.WWCUSTS04D_Customer_No }}</label>
+										<div class="col-md-11 col-md-offset-9">
+											<input type="text" id="xwbccd" name="zwbccd" ng-model="stateVariable.zwbccd" title="zwbccd" class="form-control WorkWithCustomersPanel4_Xwbccd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Customer_Name" class="control-label col-md-13 col-md-offset-2 WorkWithCustomersPanel4_Customer_Name" for="xwg4tx">{{ consts.WWCUSTS04D_Customer_Name }}</label>
+										<div class="col-md-40 col-md-offset-7">
+											<input type="text" id="xwg4tx" name="zwg4tx" ng-model="stateVariable.zwg4tx" title="zwg4tx" class="form-control WorkWithCustomersPanel4_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Statement_Account" class="control-label col-md-17 col-md-offset-2 WorkWithCustomersPanel4_Statement_Account" for="xwb2cd">{{ consts.WWCUSTS04D_Statement_Account }}</label>
+										<div class="col-md-11 col-md-offset-3">
+											<input type="text" id="xwb2cd" name="zwb2cd" ng-model="stateVariable.zwb2cd" title="zwb2cd" class="form-control WorkWithCustomersPanel4_Xwb2cd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Related_Account" class="control-label col-md-15 col-md-offset-2 WorkWithCustomersPanel4_Related_Account" for="xwb3cd">{{ consts.WWCUSTS04D_Related_Account }}</label>
+										<div class="col-md-11 col-md-offset-5">
+											<input type="text" id="xwb3cd" name="zwb3cd" ng-model="stateVariable.zwb3cd" title="zwb3cd" class="form-control WorkWithCustomersPanel4_Xwb3cd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Tax_Reg" class="control-label col-md-7 col-md-offset-2 WorkWithCustomersPanel4_Tax_Reg" for="xwhitx">{{ consts.WWCUSTS04D_Tax_Reg }}</label>
+										<div class="col-md-15 col-md-offset-13">
+											<input type="text" id="xwhitx" name="zwhitx" ng-model="stateVariable.zwhitx" title="zwhitx" class="form-control WorkWithCustomersPanel4_Xwhitx" tabindex="-1" ng-style="" maxlength="15" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Bank" class="control-label col-md-4 col-md-offset-2 WorkWithCustomersPanel4_Bank" for="xwe0nb">{{ consts.WWCUSTS04D_Bank }}</label>
+										<div class="col-md-13 col-md-offset-16">
+											<input type="text" id="xwe0nb" name="zwe0nb" ng-model="stateVariable.zwe0nb" title="zwe0nb" class="form-control WorkWithCustomersPanel4_Xwe0nb" tabindex="-1" ng-style="" style="text-align: right" maxlength="9" mask-number="9, 0" ng-readonly="true" convert-number modelformat="000000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Bank_A_c" class="control-label col-md-8 col-md-offset-2 WorkWithCustomersPanel4_Bank_A_c" for="xwjun0">{{ consts.WWCUSTS04D_Bank_A_c }}</label>
+										<div class="col-md-15 col-md-offset-12">
+											<input type="text" id="xwjun0" name="zwjun0" ng-model="stateVariable.zwjun0" title="zwjun0" class="form-control WorkWithCustomersPanel4_Xwjun0" tabindex="-1" ng-style="" style="text-align: right" maxlength="15" mask-number="15, 0" ng-readonly="true" convert-number modelformat="000000000000000" viewformat="" />
+										</div>
+										<label id="WorkWithCustomersPanel4_Forex" class="control-label col-md-5 col-md-offset-7 WorkWithCustomersPanel4_Forex" for="xwdvcd">{{ consts.WWCUSTS04D_Forex }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwdvcd" name="zwdvcd" ng-model="stateVariable.zwdvcd" title="zwdvcd" class="form-control WorkWithCustomersPanel4_Xwdvcd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_CusGrp" class="control-label col-md-6 col-md-offset-2 WorkWithCustomersPanel4_CusGrp" for="xwbncd">{{ consts.WWCUSTS04D_CusGrp }}</label>
+										<div class="col-md-5 col-md-offset-14">
+											<input type="text" id="xwbncd" name="zwbncd" ng-model="stateVariable.zwbncd" title="zwbncd" class="form-control WorkWithCustomersPanel4_Xwbncd" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Rep" class="control-label col-md-3 col-md-offset-2 WorkWithCustomersPanel4_Rep" for="person">{{ consts.WWCUSTS04D_Rep }}</label>
+										<div class="col-md-6 col-md-offset-17">
+											<input type="text" id="person" name="zperson" ng-model="stateVariable.zperson" title="zperson" class="form-control WorkWithCustomersPanel4_Person" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+										<div class="col-md-34 col-md-offset--1">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control WorkWithCustomersPanel4_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Distributor" class="control-label col-md-11 col-md-offset-2 WorkWithCustomersPanel4_Distributor" for="dsdcde">{{ consts.WWCUSTS04D_Distributor }}</label>
+										<div class="col-md-5 col-md-offset-9">
+											<input type="text" id="dsdcde" name="zdsdcde" ng-model="stateVariable.zdsdcde" title="zdsdcde" class="form-control WorkWithCustomersPanel4_Dsdcde" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Credit_Limit" class="control-label col-md-12 col-md-offset-2 WorkWithCustomersPanel4_Credit_Limit" for="xwgiva">{{ consts.WWCUSTS04D_Credit_Limit }}</label>
+										<div class="col-md-17 col-md-offset-8">
+											<input type="text" id="xwgiva" name="zwgiva" ng-model="stateVariable.zwgiva" title="zwgiva" class="form-control WorkWithCustomersPanel4_Xwgiva" tabindex="-1" ng-style="" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="true" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="WorkWithCustomersPanel4_Terms" class="control-label col-md-5 col-md-offset-5 WorkWithCustomersPanel4_Terms" for="xwbtcd">{{ consts.WWCUSTS04D_Terms }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwbtcd" name="zwbtcd" ng-model="stateVariable.zwbtcd" title="zwbtcd" class="form-control WorkWithCustomersPanel4_Xwbtcd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Stl_Dsc" class="control-label col-md-7 col-md-offset-2 WorkWithCustomersPanel4_Stl_Dsc" for="xwaocd">{{ consts.WWCUSTS04D_Stl_Dsc }}</label>
+										<div class="col-md-6 col-md-offset-13">
+											<input type="text" id="xwaocd" name="zwaocd" ng-model="stateVariable.zwaocd" title="zwaocd" class="form-control WorkWithCustomersPanel4_Xwaocd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+										<label id="WorkWithCustomersPanel4_Int" class="control-label col-md-3 col-md-offset-16 WorkWithCustomersPanel4_Int" for="xwbbcd">{{ consts.WWCUSTS04D_Int }}</label>
+										<div class="col-md-6 col-md-offset-15">
+											<input type="text" id="xwbbcd" name="zwbbcd" ng-model="stateVariable.zwbbcd" title="zwbbcd" class="form-control WorkWithCustomersPanel4_Xwbbcd" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Cr_Guarantee" class="control-label col-md-12 col-md-offset-2 WorkWithCustomersPanel4_Cr_Guarantee" for="xwg4t0">{{ consts.WWCUSTS04D_Cr_Guarantee }}</label>
+										<div class="col-md-14 col-md-offset-8">
+											<input type="text" id="xwg4t0" name="zwg4t0" ng-model="stateVariable.zwg4t0" title="zwg4t0" class="form-control WorkWithCustomersPanel4_Xwg4t0" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_B_O" class="control-label col-md-3 col-md-offset-2 WorkWithCustomersPanel4_B_O" for="xwc7st">{{ consts.WWCUSTS04D_B_O }}</label>
+										<div class="col-md-6 col-md-offset-17">
+											<input type="text" id="xwc7st" name="zwc7st" ng-model="stateVariable.zwc7st" title="zwc7st" class="form-control WorkWithCustomersPanel4_Xwc7st" tabindex="-1" ng-style="" maxlength="1" ng-readonly="true" />
+										</div>
+										<label id="WorkWithCustomersPanel4_Lang" class="control-label col-md-4 col-md-offset-16 WorkWithCustomersPanel4_Lang" for="xwdast">{{ consts.WWCUSTS04D_Lang }}</label>
+										<div class="col-md-6 col-md-offset-14">
+											<input type="text" id="xwdast" name="zwdast" ng-model="stateVariable.zwdast" title="zwdast" class="form-control WorkWithCustomersPanel4_Xwdast" tabindex="-1" ng-style="" maxlength="1" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Date_Loaded" class="control-label col-md-11 col-md-offset-2 WorkWithCustomersPanel4_Date_Loaded" for="xwbpd0">{{ consts.WWCUSTS04D_Date_Loaded }}</label>
+										<div class="col-md-14 col-md-offset-9">
+											<input type="text" id="xwbpd0" name="zwbpd0" ng-model="stateVariable.zwbpd0" title="zwbpd0" class="form-control WorkWithCustomersPanel4_Xwbpd0" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+										<label id="WorkWithCustomersPanel4_Chg_Date" class="control-label col-md-8 col-md-offset-8 WorkWithCustomersPanel4_Chg_Date" for="xwbad0">{{ consts.WWCUSTS04D_Chg_Date }}</label>
+										<div class="col-md-14 col-md-offset-10">
+											<input type="text" id="xwbad0" name="zwbad0" ng-model="stateVariable.zwbad0" title="zwbad0" class="form-control WorkWithCustomersPanel4_Xwbad0" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithCustomersPanel4_Last_Sale" class="control-label col-md-9 col-md-offset-2 WorkWithCustomersPanel4_Last_Sale" for="zwardt">{{ consts.WWCUSTS04D_Last_Sale }}</label>
+										<div class="col-md-14 col-md-offset-11">
+											<input type="text" id="zwardt" name="zwardt" ng-model="stateVariable.zwardt" title="zwardt" class="form-control WorkWithCustomersPanel4_Zwardt" tabindex="-1" maxlength="10" readonly convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitRecord()" visible="submitBtnToRender()">Submit</button>
+								<button id="confirm" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="confirmationButtonRequired()">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE logback>
+<configuration>
+	<appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %p [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="wholeLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/AcdemxaMvcprocess-log.txt</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/AcdemxaMvcprocess-%d{yyyy-MM-dd}-log.%i.txt</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+			<maxFileSize>250MB</maxFileSize>
+			<maxHistory>5</maxHistory>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d %p [%c] - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--
+	<appender name="methodLog" class="org.apache.log4j.FileAppender">
+		<param name="Append" value="false"/>
+    	<<param name="File" value="logs\\AcdemxaMvcprocess-logmethod.txt" />
+		<param name="MaxFileSize" value="250MB" />
+		<param name="MaxBackupIndex" value="5" />
+    	<layout class="org.apache.log4j.PatternLayout">
+      		<param name="ConversionPattern" value="%d{ISO8601}: %F- %m\r\n"/>
+    	</layout>
+  	</appender>
+	-->
+
+	<logger name="org.springframework">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.hibernate">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.hibernate.SQL">
+		<level value="debug" />
+		<appender-ref ref="wholeLog" />
+	</logger>
+
+	<logger name="com.googlecode.genericdao.search">
+		<level value="error" />
+	</logger>
+
+	<logger name="com.databorough.utils.LoggingAspect" >
+		<level value="trace" />
+		<appender-ref ref="wholeLog" />
+	</logger>
+
+	<!-- Package level logging -->
+	<logger name="acdemxaMvcprocess.logic">
+		<appender-ref ref="wholeLog" />
+	</logger>
+	<logger name="acdemxaMvcprocess.logic.batch" additivity="false">
+		<appender-ref ref="wholeLog" />
+	</logger>
+	<logger name="acdemxaMvcprocess.logic.ext" additivity="false">
+		<appender-ref ref="wholeLog" />
+	</logger>
+
+	<!--
+	<logger name="com.databorough.utils.MethodLogger" >
+		<level value ="debug" />
+		<appender-ref ref="methodLog" />
+	</logger>
+	-->
+
+	<!-- Use "info" level in production and use "debug" or "trace" level in
+	     development and testing environments.
+	-->
+	<root>
+		<level value="trace"></level>
+		<appender-ref ref="consoleLog" />
+	</root>
+</configuration>

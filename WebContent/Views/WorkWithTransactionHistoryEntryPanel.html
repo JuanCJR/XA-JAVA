@@ -1,0 +1,111 @@
+<business-messages></business-messages>
+<div ng-init="init()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-lg-80 connectedSortable">
+			<div class="box box-primary grid-box">
+				<div class="box-header">
+					<div class="pull-right box-tools">
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Previous" ng-click="previousPage()" ng-show="hasPreviousPage()"><i class="fa fa-chevron-left"></i></button>
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Next" ng-click="nextPage(0)" ng-show="hasNextPage()"><i class="fa fa-chevron-right"></i></button>
+					</div>
+					<i class="fa fa-table hidden-xs"></i>
+					<h3 class="box-title">Work with transaction history</h3>
+				</div>
+				<div class="box-body">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+    							<div class="col-md-80">
+    								<form class="form-horizontal" name="flatPanel">
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithTransactionHistoryEntryPanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryEntryPanel_Customer" class="control-label col-md-9 col-md-offset-2 WorkWithTransactionHistoryEntryPanel_Customer" for="xwbccd">{{ consts.WWTRNHST01D_Customer }}</label>
+										<div class="col-md-11 col-md-offset-15">
+											<input type="text" id="xwbccd" name="xwbccd" ng-model="stateVariable.xwbccd" title="xwbccd" class="form-control WorkWithTransactionHistoryEntryPanel_Xwbccd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true"  />
+										</div>
+										<div class="col-md-40 col-md-offset-1">
+											<input type="text" id="xwg4tx" name="xwg4tx" ng-model="stateVariable.xwg4tx" title="xwg4tx" class="form-control WorkWithTransactionHistoryEntryPanel_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true"  />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryEntryPanel_Representative" class="control-label col-md-15 col-md-offset-2 WorkWithTransactionHistoryEntryPanel_Representative" for="person">{{ consts.WWTRNHST01D_Representative }}</label>
+										<div class="col-md-6 col-md-offset-9">
+											<input type="text" id="person" name="percus" ng-model="stateVariable.percus" title="percus" class="form-control WorkWithTransactionHistoryEntryPanel_SLMEN_Person" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true"  />
+										</div>
+										<div class="col-md-34 col-md-offset--1">
+											<input type="text" id="pname" name="sname" ng-model="stateVariable.sname" title="sname" class="form-control WorkWithTransactionHistoryEntryPanel_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true"  />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryEntryPanel_Telephone_Number" class="control-label col-md-17 col-md-offset-2 WorkWithTransactionHistoryEntryPanel_Telephone_Number" for="telno">{{ consts.WWTRNHST01D_Telephone_Number }}</label>
+										<div class="col-md-17 col-md-offset-7">
+											<input type="text" id="telno" name="telno" ng-model="stateVariable.telno" title="telno" class="form-control WorkWithTransactionHistoryEntryPanel_CUSF_Telno" tabindex="-1" ng-style="" maxlength="17" ng-readonly="true"  />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithTransactionHistoryEntryPanel_Current_balance" class="control-label col-md-16 col-md-offset-2 WorkWithTransactionHistoryEntryPanel_Current_balance" for="xwidv0">{{ consts.WWTRNHST01D_Current_balance }}</label>
+										<div class="col-md-17 col-md-offset-8">
+											<input type="text" id="xwidv0" name="xwidv0" ng-model="stateVariable.xwidv0" title="xwidv0" class="form-control WorkWithTransactionHistoryEntryPanel_Xwidv0" tabindex="-1" ng-style="" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="true" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="WorkWithTransactionHistoryEntryPanel_Credit_Limit" class="control-label col-md-13 col-md-offset-1 WorkWithTransactionHistoryEntryPanel_Credit_Limit" for="xwgiva">{{ consts.WWTRNHST01D_Credit_Limit }}</label>
+										<div class="col-md-11 col-md-offset-7">
+											<input type="text" id="xwgiva" name="xwgiva" ng-model="stateVariable.xwgiva" title="xwgiva" class="form-control WorkWithTransactionHistoryEntryPanel_Xwgiva" tabindex="-1" ng-style="" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="true" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+    								</form>
+    							</div>
+    						</div>
+    					</div>
+ 					<div class="row">
+						<div class="col-xs-80">
+							<div class="table-responsive">
+								<!-- Display filter fields. Valid position values are: above <table>, inside div.box-tools, above root div.row -->
+								<grid-filter ng-show="filterFlds.length != 0">
+									<input ng-model="filterData.xwe4nb" ui-keypress="{'enter':'applyFilter()'}" class="form-control input-sm" type="text" id="xwe4nb" maxlength="10" convert-number modelformat="000000" viewformat="">
+									<input ng-model="filterData.xwricd" ui-keypress="{'enter':'applyFilter()'}" class="form-control input-sm" type="text" id="xwricd" maxlength="3" uppercase>
+								</grid-filter>
+								<table class="grid table table-bordered table-striped table-hover preserve-grid-layout">
+									<thead>
+										<tr>
+											<th></th>
+											<th class="col-md-23" ng-show="true">{{ consts.WWTRNHST01G_Period }}</th>
+											<th class="col-md-7" ng-show="true">{{ consts.WWTRNHST01G_Trn }}</th>
+											<th class="col-md-23" ng-show="true">{{ consts.WWTRNHST01G_Trn_Hst_Date }}</th>
+											<th class="col-md-25" ng-show="true">{{ consts.WWTRNHST01G_Trn_Hst_Seq }}</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="row in gridVariable" ng-class-even="'alternate-row'">
+											<td><input type="checkbox" icheck ng-model="row.checked" /></td>
+											<td>{{ row.xwe4nb | formatDate:'YYMMDD':dateFormat }}</td>
+											<td>{{ row.xwricd | uppercase }}</td>
+											<td>{{ row.xwdldt.date | date:dateFormat }}</td>
+											<td>{{ row.xwc8dt }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-lg-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+ 								<button id="WWTRNHST02D_W" data-toggle="tooltip" title="WWTRNHST02D" action="addRecordWWTRNHST01G()" visible="true">{{ consts.WWTRNHST01G_WWTRNHST02D_W }}</button>
+ 								<button id="WWTRNHST02D_U2" data-toggle="tooltip" title="WWTRNHST02D" action="changeRecordWWTRNHST01G()" visible="!add" disable="gridEmpty()">{{ consts.WWTRNHST01G_WWTRNHST02D_U2 }}</button>
+ 								<button id="WWTRNHST02D_D3" data-toggle="tooltip" title="WWTRNHST02D" action="deleteRecordWWTRNHST01G()" visible="!add" disable="gridEmpty()">{{ consts.WWTRNHST01G_WWTRNHST02D_D3 }}</button>
+ 								<button id="WWTRNHST02D_R4" data-toggle="tooltip" title="WWTRNHST02D" action="displayWWTRNHST01G()" visible="!add" disable="gridEmpty()">{{ consts.WWTRNHST01G_WWTRNHST02D_R4 }}</button>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 				<async-operation-indicator />
+ 			</div>
+ 		</section>
+ 	</div>
+</div>

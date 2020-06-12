@@ -1,0 +1,6 @@
+{
+	"dateFormat":"dd/mm/yyyy",
+	"restUrlPrefix":"http://192.168.170.111:8080/acdemxamvcprocess/rest/",
+	"numRows":"0",
+	"numAddRows":"0"
+}

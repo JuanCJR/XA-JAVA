@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>X-Redo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="Assets/Images/favico.ico"/>
+        <script src="Libraries/HeadJS/head.min.js" data-headjs-load="Loader.js"></script>
+    </head>
+    <!-- The application UI is made visible only when all the required assets have been loaded -->
+    <body class="skin-light-blue" ng-controller="BaseController" style="visibility: hidden">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+                <!-- X2E-Migrate -->
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <section class="content-header" style="float:left;">
+                    <h4 style="margin-left: 20px;margin-top: 16px;">
+                        <!-- Hospital Demo System -->
+                    </h4>
+                </section>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- First Dropdown: style can be found in dropdown.less-->
+                        <li class="dropdown themes-menu">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Select a color theme</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li ng-repeat="skin in skins">
+                                            <a class="{{ skin.backgroundClassName }}" ng-click="changeTheme(skin.name)">
+                                                <h4 class="{{ skin.foregroundClassName }}">
+                                                    {{ skin.displayName }}
+                                                </h4>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a>&nbsp;&nbsp;</a></li>
+                            </ul>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu" ng-show="userAuthenticated">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>{{ userDescription }}<i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="Assets/Images/avatar.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        {{ userDescription }}
+                                    <p> Login Time: {{ loginTime }}</p>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a ng-click="logout()" class="btn btn-primary btn-flat">Log out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Main content -->
+            <div class="program-section">
+                <section class="content">
+                    <progress-indicator></progress-indicator>
+                    <div class="container-fluid">
+                        <ng-view></ng-view>
+                    </div>
+                </section><!-- /.content -->
+            </div><!-- ./program-section -->
+        </div><!-- ./wrapper -->
+        <!-- Loading indicator displayed for pre-loading all JS and CSS assets --> 
+        <div class="app-init-indicator" style="visibility: visible; font-family: 'Source Sans Pro', sans-serif; font-size: 14px">
+            <div class="loadIndicator" style="position: absolute; z-index: 999;	top: 0;	left: 0; width: 100%; height: 100%; background: rgba(249, 249, 249, 1);	opacity: 1;"></div>
+            <div class="ajaxloadergif" style="position: absolute; top: 50%; left: 50%; margin-left: -110px; z-index: 999;">
+                <div style="text-align:center">
+                    <img src="Assets/Images/ajax-loader-12.gif" />
+                </div>
+                <div style="text-align:center">
+                    Initializing Application...
+                </div>
+            </div>
+        </div><!-- ./app-init-indicator -->
+    </body>
+</html>

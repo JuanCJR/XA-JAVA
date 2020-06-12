@@ -1,0 +1,125 @@
+<business-messages></business-messages>
+<div ng-init="init()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-lg-80 connectedSortable">
+			<div class="box box-primary grid-box">
+				<div class="box-header">
+					<div class="pull-right box-tools">
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Previous" ng-click="previousPage()" ng-show="hasPreviousPage()"><i class="fa fa-chevron-left"></i></button>
+						<button class="btn btn-primary btn-xs" data-toggle="tooltip" title="Next" ng-click="nextPage(0)" ng-show="hasNextPage()"><i class="fa fa-chevron-right"></i></button>
+					</div>
+					<i class="fa fa-table hidden-xs"></i>
+					<h3 class="box-title">Work with Order Details</h3>
+				</div>
+				<div class="box-body">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+    							<div class="col-md-80">
+    								<form class="form-horizontal" name="flatPanel">
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithOrderDetailsEntryPanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsEntryPanel_Contract" class="control-label col-md-9 col-md-offset-2 WorkWithOrderDetailsEntryPanel_Contract" for="xwordn">{{ consts.WWCONDET01D_Contract }}</label>
+										<div class="col-md-9 col-md-offset-15">
+											<input type="text" id="xwordn" name="xwordn" ng-model="stateVariable.xwordn" title="xwordn" class="form-control WorkWithOrderDetailsEntryPanel_Xwordn" tabindex="-1" ng-style="" style="text-align: right" maxlength="6" mask-number="6, 0" ng-readonly="true" convert-number modelformat="000000" viewformat="" />
+										</div>
+										<label id="WorkWithOrderDetailsEntryPanel_Date" class="control-label col-md-5 col-md-offset-13 WorkWithOrderDetailsEntryPanel_Date" for="xwdldt">{{ consts.WWCONDET01D_Date }}</label>
+										<div class="col-md-14 col-md-offset-1">
+											<input type="text" id="xwdldt" name="xwdldt" ng-model="stateVariable.xwdldt" title="xwdldt" class="form-control WorkWithOrderDetailsEntryPanel_Xwdldt" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsEntryPanel_Customer_Reference" class="control-label col-md-19 col-md-offset-2 WorkWithOrderDetailsEntryPanel_Customer_Reference" for="xwcref">{{ consts.WWCONDET01D_Customer_Reference }}</label>
+										<div class="col-md-20 col-md-offset-5">
+											<input type="text" id="xwcref" name="xwcref" ng-model="stateVariable.xwcref" title="xwcref" class="form-control WorkWithOrderDetailsEntryPanel_Xwcref" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true"  />
+										</div>
+										<label id="WorkWithOrderDetailsEntryPanel_Status" class="control-label col-md-7 col-md-offset-2 WorkWithOrderDetailsEntryPanel_Status" for="xwstat">{{ consts.WWCONDET01D_Status }}</label>
+										<div class="col-md-5 col-md-offset-1">
+											<input type="text" id="xwstat" name="xwstat" ng-model="stateVariable.xwstat" title="xwstat" class="form-control WorkWithOrderDetailsEntryPanel_Xwstat" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true"  />
+										</div>
+										<div class="col-md-13 col-md-offset--1">
+											<input type="text" id="xwsdsc" name="xwsdsc" ng-model="stateVariable.xwsdsc" title="xwsdsc" class="form-control WorkWithOrderDetailsEntryPanel_ORDSTS_Xwsdsc" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true"  />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsEntryPanel_Customer" class="control-label col-md-9 col-md-offset-2 WorkWithOrderDetailsEntryPanel_Customer" for="xwbccd">{{ consts.WWCONDET01D_Customer }}</label>
+										<div class="col-md-11 col-md-offset-1">
+											<input type="text" id="xwbccd" name="xwbccd" ng-model="stateVariable.xwbccd" title="xwbccd" class="form-control WorkWithOrderDetailsEntryPanel_Xwbccd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true"  />
+										</div>
+										<div class="col-md-40 col-md-offset-1">
+											<input type="text" id="xwg4tx" name="xwg4tx" ng-model="stateVariable.xwg4tx" title="xwg4tx" class="form-control WorkWithOrderDetailsEntryPanel_CUSTS_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true"  />
+										</div>
+									</div>
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsEntryPanel_Representative" class="control-label col-md-15 col-md-offset-2 WorkWithOrderDetailsEntryPanel_Representative" for="person">{{ consts.WWCONDET01D_Representative }}</label>
+										<div class="col-md-6 col-md-offset-9">
+											<input type="text" id="person" name="person" ng-model="stateVariable.person" title="person" class="form-control WorkWithOrderDetailsEntryPanel_Person" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true"  />
+										</div>
+										<div class="col-md-34 col-md-offset--1">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control WorkWithOrderDetailsEntryPanel_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true"  />
+										</div>
+									</div>
+    								</form>
+    							</div>
+    						</div>
+    					</div>
+ 					<div class="row">
+						<div class="col-xs-80">
+							<div class="table-responsive">
+								<!-- Display filter fields. Valid position values are: above <table>, inside div.box-tools, above root div.row -->
+								<grid-filter ng-show="filterFlds.length != 0">
+									<input ng-model="filterData.swabcd" ui-keypress="{'enter':'applyFilter()'}" class="form-control input-sm" type="text" id="swabcd" maxlength="15" uppercase>
+								</grid-filter>
+								<table class="grid table table-bordered table-striped table-hover preserve-grid-layout">
+									<thead>
+										<tr>
+											<th></th>
+											<th class="col-md-16" ng-show="true">{{ consts.WWCONDET01G_Product }}</th>
+											<th class="col-md-11" ng-show="true">{{ consts.WWCONDET01G__1 }}</th>
+											<th class="col-md-12" ng-show="true">{{ consts.WWCONDET01G_Store }}</th>
+											<th class="col-md-10" ng-show="true">{{ consts.WWCONDET01G_Ref_No }}</th>
+											<th class="col-md-3" ng-show="true">{{ consts.WWCONDET01G_Typ }}</th>
+											<th class="col-md-13" ng-show="true">{{ consts.WWCONDET01G_Cntract_Qty }}</th>
+											<th class="col-md-3" ng-show="true">{{ consts.WWCONDET01G_Stk }}</th>
+											<th class="col-md-9" ng-show="true">{{ consts.WWCONDET01G_Price }}</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="row in gridVariable" ng-class-even="'alternate-row'">
+											<td><input type="checkbox" icheck ng-model="row.checked" /></td>
+											<td>{{ row.swabcd | uppercase }}</td>
+											<td>{{ row.xwhltx }}</td>
+											<td>{{ row.xwaacs }}</td>
+											<td>{{ row.swt8tx }}</td>
+											<td>{{ row.xwricd }}</td>
+											<td>{{ row.xwa5qt }}</td>
+											<td>{{ row.xwa2cd }}</td>
+											<td>{{ row.xwpric }}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-lg-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+ 								<button id="WWCONDET02D_W" data-toggle="tooltip" title="WWCONDET02D" action="addRecordWWCONDET01G()" visible="true">{{ consts.WWCONDET01G_WWCONDET02D_W }}</button>
+ 								<button id="WWCONDET02D_U2" data-toggle="tooltip" title="WWCONDET02D" action="changeRecordWWCONDET01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCONDET01G_WWCONDET02D_U2 }}</button>
+ 								<button id="WWCONDET02D_D3" data-toggle="tooltip" title="WWCONDET02D" action="deleteRecordWWCONDET01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCONDET01G_WWCONDET02D_D3 }}</button>
+ 								<button id="WWCONDET02D_R4" data-toggle="tooltip" title="WWCONDET02D" action="displayWWCONDET01G()" visible="!add" disable="gridEmpty()">{{ consts.WWCONDET01G_WWCONDET02D_R4 }}</button>
+ 							</div>
+ 						</div>
+ 					</div>
+ 				</div>
+ 				<async-operation-indicator />
+ 			</div>
+ 		</section>
+ 	</div>
+</div>

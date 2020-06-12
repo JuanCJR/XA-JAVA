@@ -1,0 +1,142 @@
+<business-messages></business-messages>
+<div ng-init="loadFlatData()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Work with Order Details</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control WorkWithOrderDetailsPanel3_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+ 										<label id="WorkWithOrderDetailsPanel3_DISPLAY_Const" class="control-label col-md-7 col-md-offset-2 WorkWithOrderDetailsPanel3_DISPLAY_Const">{{ consts.WWCONDET03D_DISPLAY_Const }}</label>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Contract" class="control-label col-md-9 col-md-offset-4 WorkWithOrderDetailsPanel3_Contract" for="xwordn">{{ consts.WWCONDET03D_Contract }}</label>
+										<div class="col-md-9 col-md-offset-15">
+											<input type="text" id="xwordn" name="xwordn" ng-model="stateVariable.xwordn" title="xwordn" class="form-control WorkWithOrderDetailsPanel3_Xwordn" tabindex="-1" ng-style="" style="text-align: right" maxlength="6" mask-number="6, 0" ng-readonly="true" convert-number modelformat="000000" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Customer" class="control-label col-md-9 col-md-offset-4 WorkWithOrderDetailsPanel3_Customer" for="xwbccd">{{ consts.WWCONDET03D_Customer }}</label>
+										<div class="col-md-11 col-md-offset-15">
+											<input type="text" id="xwbccd" name="xwbccd" ng-model="stateVariable.xwbccd" title="xwbccd" class="form-control WorkWithOrderDetailsPanel3_Xwbccd" tabindex="-1" ng-style="" maxlength="11" ng-readonly="true" />
+										</div>
+										<div class="col-md-40 col-md-offset-1">
+											<input type="text" id="xwg4tx" name="xwg4tx" ng-model="stateVariable.xwg4tx" title="xwg4tx" class="form-control WorkWithOrderDetailsPanel3_CUSTS_Xwg4tx" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Customer_Reference" class="control-label col-md-19 col-md-offset-4 WorkWithOrderDetailsPanel3_Customer_Reference" for="xwcref">{{ consts.WWCONDET03D_Customer_Reference }}</label>
+										<div class="col-md-20 col-md-offset-5">
+											<input type="text" id="xwcref" name="xwcref" ng-model="stateVariable.xwcref" title="xwcref" class="form-control WorkWithOrderDetailsPanel3_Xwcref" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Contract_Date" class="control-label col-md-14 col-md-offset-4 WorkWithOrderDetailsPanel3_Contract_Date" for="xwdldt">{{ consts.WWCONDET03D_Contract_Date }}</label>
+										<div class="col-md-14 col-md-offset-10">
+											<input type="text" id="xwdldt" name="xwdldt" ng-model="stateVariable.xwdldt" title="xwdldt" class="form-control WorkWithOrderDetailsPanel3_Xwdldt" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Status" class="control-label col-md-7 col-md-offset-4 WorkWithOrderDetailsPanel3_Status" for="xwstat">{{ consts.WWCONDET03D_Status }}</label>
+										<div class="col-md-5 col-md-offset-17">
+											<input type="text" id="xwstat" name="xwstat" ng-model="stateVariable.xwstat" title="xwstat" class="form-control WorkWithOrderDetailsPanel3_Xwstat" tabindex="-1" ng-style="" maxlength="2" ng-readonly="true" />
+										</div>
+										<div class="col-md-20 col-md-offset--1">
+											<input type="text" id="xwsdsc" name="xwsdsc" ng-model="stateVariable.xwsdsc" title="xwsdsc" class="form-control WorkWithOrderDetailsPanel3_ORDSTS_Xwsdsc" tabindex="-1" ng-style="" maxlength="20" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Representative" class="control-label col-md-15 col-md-offset-4 WorkWithOrderDetailsPanel3_Representative" for="person">{{ consts.WWCONDET03D_Representative }}</label>
+										<div class="col-md-6 col-md-offset-9">
+											<input type="text" id="person" name="person" ng-model="stateVariable.person" title="person" class="form-control WorkWithOrderDetailsPanel3_Person" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+										<div class="col-md-34 col-md-offset--1">
+											<input type="text" id="pname" name="pname" ng-model="stateVariable.pname" title="pname" class="form-control WorkWithOrderDetailsPanel3_SLMEN_Pname" tabindex="-1" ng-style="" maxlength="34" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Contract_Value" class="control-label col-md-15 col-md-offset-4 WorkWithOrderDetailsPanel3_Contract_Value" for="xwtamt">{{ consts.WWCONDET03D_Contract_Value }}</label>
+										<div class="col-md-18 col-md-offset-9">
+											<input type="text" id="xwtamt" name="xwtamt" ng-model="stateVariable.xwtamt" title="xwtamt" class="form-control WorkWithOrderDetailsPanel3_Xwtamt" tabindex="-1" ng-style="" style="text-align: right" maxlength="18" mask-number="13, 2" ng-readonly="true" convert-number modelformat="00000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Address" class="control-label col-md-8 col-md-offset-4 WorkWithOrderDetailsPanel3_Address" for="xwadd1">{{ consts.WWCONDET03D_Address }}</label>
+										<div class="col-md-40 col-md-offset-16">
+											<input type="text" id="xwadd1" name="xwadd1" ng-model="stateVariable.xwadd1" title="xwadd1" class="form-control WorkWithOrderDetailsPanel3_Xwadd1" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd2" name="xwadd2" ng-model="stateVariable.xwadd2" title="xwadd2" class="form-control WorkWithOrderDetailsPanel3_Xwadd2" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd3" name="xwadd3" ng-model="stateVariable.xwadd3" title="xwadd3" class="form-control WorkWithOrderDetailsPanel3_Xwadd3" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-40 col-md-offset-28">
+											<input type="text" id="xwadd4" name="xwadd4" ng-model="stateVariable.xwadd4" title="xwadd4" class="form-control WorkWithOrderDetailsPanel3_Xwadd4" tabindex="-1" ng-style="" maxlength="40" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Post_Code" class="control-label col-md-10 col-md-offset-4 WorkWithOrderDetailsPanel3_Post_Code" for="xwpcde">{{ consts.WWCONDET03D_Post_Code }}</label>
+										<div class="col-md-14 col-md-offset-14">
+											<input type="text" id="xwpcde" name="xwpcde" ng-model="stateVariable.xwpcde" title="xwpcde" class="form-control WorkWithOrderDetailsPanel3_Xwpcde" tabindex="-1" ng-style="" maxlength="10" ng-readonly="true" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="WorkWithOrderDetailsPanel3_Country" class="control-label col-md-8 col-md-offset-4 WorkWithOrderDetailsPanel3_Country" for="xwcntr">{{ consts.WWCONDET03D_Country }}</label>
+										<div class="col-md-6 col-md-offset-16">
+											<input type="text" id="xwcntr" name="xwcntr" ng-model="stateVariable.xwcntr" title="xwcntr" class="form-control WorkWithOrderDetailsPanel3_Xwcntr" tabindex="-1" ng-style="" maxlength="3" ng-readonly="true" />
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitRecord()" visible="submitBtnToRender()">Submit</button>
+								<button id="confirm" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="confirmationButtonRequired()">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

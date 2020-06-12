@@ -1,0 +1,169 @@
+<business-messages></business-messages>
+<div ng-init="loadFlatData()" ng-cloak>
+	<div class="row" ng-show="requestInProgress.$resolved">
+		<section class="col-md-80 connectedSortable">
+			<div class="box box-primary">
+				<div class="box-header">
+					<i class="fa fa-file-text"></i>
+					<h3 class="box-title">Customer Detail Maintenance</h3>
+				</div>
+				<div class="box-body" id="flat-box">
+					<div class="container col-xs-offset-0">
+						<div class="row">
+							<div class="col-md-80">
+								<form class="form-horizontal" name="flatPanel" focus-on-error>
+
+									<div class="form-group">
+										<div class="col-md-14 col-md-offset-70">
+											<input type="text" id="zzdate" name="zzdate" ng-model="stateVariable.zzdate" title="zzdate" class="form-control CustomerDetailMaintenancePanel_Zzdate" tabindex="-1" style="text-align: right" maxlength="10" readonly />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Amt_Last_Sale" class="control-label col-md-13 col-md-offset-2 CustomerDetailMaintenancePanel_Amt_Last_Sale {{ pgmLogicCtrlStyle('Xwf0va', false, false) }}" for="xwf0va">{{ consts.CUSTMNT102D_Amt_Last_Sale }}</label>
+										<div class="col-md-17 col-md-offset-7">
+											<input type="text" id="xwf0va" name="swf0va" ng-model="stateVariable.swf0va" title="swf0va" class="form-control CustomerDetailMaintenancePanel_Xwf0va {{ pgmLogicCtrlStyle('Xwf0va', false, false) }}" tabindex="1" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf0va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Date_Last_Pay" class="control-label col-md-13 col-md-offset-2 CustomerDetailMaintenancePanel_Date_Last_Pay {{ pgmLogicCtrlStyle('Xwasdt', false, false) }}" for="xwasdt">{{ consts.CUSTMNT102D_Date_Last_Pay }}</label>
+										<div class="col-md-14 col-md-offset-7">
+											<input type="text" id="xwasdt" name="swasdt" ng-model="stateVariable.swasdt" title="swasdt" class="form-control CustomerDetailMaintenancePanel_Xwasdt {{ pgmLogicCtrlStyle('Xwasdt', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="2" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwasdt', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Last_Pay" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_Last_Pay {{ pgmLogicCtrlStyle('Xwf0v0', false, false) }}" for="xwf0v0">{{ consts.CUSTMNT102D_Last_Pay }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwf0v0" name="swf0v0" ng-model="stateVariable.swf0v0" title="swf0v0" class="form-control CustomerDetailMaintenancePanel_Xwf0v0 {{ pgmLogicCtrlStyle('Xwf0v0', false, false) }}" tabindex="3" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf0v0', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Date_Last_Stmt" class="control-label col-md-14 col-md-offset-2 CustomerDetailMaintenancePanel_Date_Last_Stmt {{ pgmLogicCtrlStyle('Xwbqdt', false, false) }}" for="xwbqdt">{{ consts.CUSTMNT102D_Date_Last_Stmt }}</label>
+										<div class="col-md-14 col-md-offset-6">
+											<input type="text" id="xwbqdt" name="swbqdt" ng-model="stateVariable.swbqdt" title="swbqdt" class="form-control CustomerDetailMaintenancePanel_Xwbqdt {{ pgmLogicCtrlStyle('Xwbqdt', false, false) }}" datetime-picker date-format="{{ dateFormat }}" tabindex="4" ng-style="style()" maxlength="10" ng-readonly="pgmLogicCtrlReadOnly('Xwbqdt', false, false)" convert-date viewFormat="{{ dateFormat }}" modelFormat="yyyy-MM-dd" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Curr_Pay" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_Curr_Pay {{ pgmLogicCtrlStyle('Xwf1va', false, false) }}" for="xwf1va">{{ consts.CUSTMNT102D_Curr_Pay }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwf1va" name="swf1va" ng-model="stateVariable.swf1va" title="swf1va" class="form-control CustomerDetailMaintenancePanel_Xwf1va {{ pgmLogicCtrlStyle('Xwf1va', false, false) }}" tabindex="5" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf1va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Curr_Claim" class="control-label col-md-10 col-md-offset-2 CustomerDetailMaintenancePanel_Curr_Claim {{ pgmLogicCtrlStyle('Xwf1v0', false, false) }}" for="xwf1v0">{{ consts.CUSTMNT102D_Curr_Claim }}</label>
+										<div class="col-md-17 col-md-offset-10">
+											<input type="text" id="xwf1v0" name="swf1v0" ng-model="stateVariable.swf1v0" title="swf1v0" class="form-control CustomerDetailMaintenancePanel_Xwf1v0 {{ pgmLogicCtrlStyle('Xwf1v0', false, false) }}" tabindex="6" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf1v0', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Curr_Sls" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_Curr_Sls {{ pgmLogicCtrlStyle('Xwf2va', false, false) }}" for="xwf2va">{{ consts.CUSTMNT102D_Curr_Sls }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwf2va" name="swf2va" ng-model="stateVariable.swf2va" title="swf2va" class="form-control CustomerDetailMaintenancePanel_Xwf2va {{ pgmLogicCtrlStyle('Xwf2va', false, false) }}" tabindex="7" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf2va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenancePanel_Curr_Cost" class="control-label col-md-9 col-md-offset-5 CustomerDetailMaintenancePanel_Curr_Cost {{ pgmLogicCtrlStyle('Xwf3va', false, false) }}" for="xwf3va">{{ consts.CUSTMNT102D_Curr_Cost }}</label>
+										<div class="col-md-11 col-md-offset-9">
+											<input type="text" id="xwf3va" name="swf3va" ng-model="stateVariable.swf3va" title="swf3va" class="form-control CustomerDetailMaintenancePanel_Xwf3va {{ pgmLogicCtrlStyle('Xwf3va', false, false) }}" tabindex="8" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf3va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Ytd_Sales" class="control-label col-md-9 col-md-offset-2 CustomerDetailMaintenancePanel_Ytd_Sales {{ pgmLogicCtrlStyle('Xwf4va', false, false) }}" for="xwf4va">{{ consts.CUSTMNT102D_Ytd_Sales }}</label>
+										<div class="col-md-17 col-md-offset-11">
+											<input type="text" id="xwf4va" name="swf4va" ng-model="stateVariable.swf4va" title="swf4va" class="form-control CustomerDetailMaintenancePanel_Xwf4va {{ pgmLogicCtrlStyle('Xwf4va', false, false) }}" tabindex="9" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf4va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenancePanel_Last_Year_Sls" class="control-label col-md-13 col-md-offset-5 CustomerDetailMaintenancePanel_Last_Year_Sls {{ pgmLogicCtrlStyle('Xwf6va', false, false) }}" for="xwf6va">{{ consts.CUSTMNT102D_Last_Year_Sls }}</label>
+										<div class="col-md-11 col-md-offset-5">
+											<input type="text" id="xwf6va" name="swf6va" ng-model="stateVariable.swf6va" title="swf6va" class="form-control CustomerDetailMaintenancePanel_Xwf6va {{ pgmLogicCtrlStyle('Xwf6va', false, false) }}" tabindex="10" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwf6va', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Balance" class="control-label col-md-7 col-md-offset-2 CustomerDetailMaintenancePanel_Balance {{ pgmLogicCtrlStyle('Xwidv0', false, false) }}" for="xwidv0">{{ consts.CUSTMNT102D_Balance }}</label>
+										<div class="col-md-17 col-md-offset-13">
+											<input type="text" id="xwidv0" name="swidv0" ng-model="stateVariable.swidv0" title="swidv0" class="form-control CustomerDetailMaintenancePanel_Xwidv0 {{ pgmLogicCtrlStyle('Xwidv0', false, false) }}" tabindex="11" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwidv0', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Current_Amt" class="control-label col-md-11 col-md-offset-2 CustomerDetailMaintenancePanel_Current_Amt {{ pgmLogicCtrlStyle('Xwgava', false, false) }}" for="xwgava">{{ consts.CUSTMNT102D_Current_Amt }}</label>
+										<div class="col-md-17 col-md-offset-9">
+											<input type="text" id="xwgava" name="swgava" ng-model="stateVariable.swgava" title="swgava" class="form-control CustomerDetailMaintenancePanel_Xwgava {{ pgmLogicCtrlStyle('Xwgava', false, false) }}" tabindex="12" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgava', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_X_030_Days" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_X_030_Days {{ pgmLogicCtrlStyle('Xwgbva', false, false) }}" for="xwgbva">{{ consts.CUSTMNT102D_X_030_Days }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwgbva" name="swgbva" ng-model="stateVariable.swgbva" title="swgbva" class="form-control CustomerDetailMaintenancePanel_Xwgbva {{ pgmLogicCtrlStyle('Xwgbva', false, false) }}" tabindex="13" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgbva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenancePanel_X_060_Days" class="control-label col-md-8 col-md-offset-5 CustomerDetailMaintenancePanel_X_060_Days {{ pgmLogicCtrlStyle('Xwgcva', false, false) }}" for="xwgcva">{{ consts.CUSTMNT102D_X_060_Days }}</label>
+										<div class="col-md-11 col-md-offset-10">
+											<input type="text" id="xwgcva" name="swgcva" ng-model="stateVariable.swgcva" title="swgcva" class="form-control CustomerDetailMaintenancePanel_Xwgcva {{ pgmLogicCtrlStyle('Xwgcva', false, false) }}" tabindex="14" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgcva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_X_090_Days" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_X_090_Days {{ pgmLogicCtrlStyle('Xwgdva', false, false) }}" for="xwgdva">{{ consts.CUSTMNT102D_X_090_Days }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwgdva" name="swgdva" ng-model="stateVariable.swgdva" title="swgdva" class="form-control CustomerDetailMaintenancePanel_Xwgdva {{ pgmLogicCtrlStyle('Xwgdva', false, false) }}" tabindex="15" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgdva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenancePanel_X_120_Days" class="control-label col-md-8 col-md-offset-5 CustomerDetailMaintenancePanel_X_120_Days {{ pgmLogicCtrlStyle('Xwgeva', false, false) }}" for="xwgeva">{{ consts.CUSTMNT102D_X_120_Days }}</label>
+										<div class="col-md-11 col-md-offset-10">
+											<input type="text" id="xwgeva" name="swgeva" ng-model="stateVariable.swgeva" title="swgeva" class="form-control CustomerDetailMaintenancePanel_Xwgeva {{ pgmLogicCtrlStyle('Xwgeva', false, false) }}" tabindex="16" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgeva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_X_150_Days" class="control-label col-md-8 col-md-offset-2 CustomerDetailMaintenancePanel_X_150_Days {{ pgmLogicCtrlStyle('Xwgfva', false, false) }}" for="xwgfva">{{ consts.CUSTMNT102D_X_150_Days }}</label>
+										<div class="col-md-17 col-md-offset-12">
+											<input type="text" id="xwgfva" name="swgfva" ng-model="stateVariable.swgfva" title="swgfva" class="form-control CustomerDetailMaintenancePanel_Xwgfva {{ pgmLogicCtrlStyle('Xwgfva', false, false) }}" tabindex="17" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwgfva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+										<label id="CustomerDetailMaintenancePanel_X_180_Days" class="control-label col-md-8 col-md-offset-5 CustomerDetailMaintenancePanel_X_180_Days {{ pgmLogicCtrlStyle('Xwggva', false, false) }}" for="xwggva">{{ consts.CUSTMNT102D_X_180_Days }}</label>
+										<div class="col-md-11 col-md-offset-10">
+											<input type="text" id="xwggva" name="swggva" ng-model="stateVariable.swggva" title="swggva" class="form-control CustomerDetailMaintenancePanel_Xwggva {{ pgmLogicCtrlStyle('Xwggva', false, false) }}" tabindex="18" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Xwggva', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Total_Days" class="control-label col-md-10 col-md-offset-2 CustomerDetailMaintenancePanel_Total_Days {{ pgmLogicCtrlStyle('Swtota', false, false) }}" for="swtota">{{ consts.CUSTMNT102D_Total_Days }}</label>
+										<div class="col-md-17 col-md-offset-10">
+											<input type="text" id="swtota" name="swtota" ng-model="stateVariable.swtota" title="swtota" class="form-control CustomerDetailMaintenancePanel_Swtota {{ pgmLogicCtrlStyle('Swtota', false, false) }}" tabindex="19" ng-style="style()" style="text-align: right" maxlength="17" mask-number="15, 2" ng-readonly="pgmLogicCtrlReadOnly('Swtota', false, false)" convert-number modelformat="0000000000000.00" viewformat="" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label id="CustomerDetailMaintenancePanel_Site_no" class="control-label col-md-7 col-md-offset-2 CustomerDetailMaintenancePanel_Site_no {{ pgmLogicCtrlStyle('Cusno', false, false) }}" for="cusno">{{ consts.CUSTMNT102D_Site_no }}</label>
+										<div class="col-md-8 col-md-offset-13">
+											<input type="text" id="cusno" name="cusno" ng-model="stateVariable.cusno" title="cusno" class="form-control CustomerDetailMaintenancePanel_Cusno {{ pgmLogicCtrlStyle('Cusno', false, false) }}" tabindex="20" ng-style="style()" style="text-align: right" maxlength="5" mask-number="5, 0" ng-readonly="pgmLogicCtrlReadOnly('Cusno', false, false)" convert-number modelformat="00000" viewformat="" />
+										</div>
+									</div>
+									<input type="hidden" id="sfield" value="stateVariable.sfield" title="Sfield" tabindex="21" class="hidden" maxlength="10" />
+									<input type="hidden" id="recnam" value="stateVariable.recnam" title="Recnam" tabindex="22" class="hidden" maxlength="10" />
+									<input type="hidden" id="xwbccd" value="stateVariable.xwbccd" title="Xwbccd" tabindex="23" class="hidden" maxlength="0" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-md-80">
+							<div action-buttons>
+								<button title="Cancel" data-toggle="tooltip" action="cancelPress()">Cancel</button>
+								<button id="updRec" title="Submit" data-toggle="tooltip" action="submitRecord()" visible="submitBtnToRender()">Submit</button>
+								<button id="confirm" title="Submit" data-toggle="tooltip" action="submitOnFlat()" visible="confirmationButtonRequired()">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<async-operation-indicator />
+			</div>
+		</section>
+	</div>
+</div>

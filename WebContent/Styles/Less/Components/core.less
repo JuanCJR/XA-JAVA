@@ -1,0 +1,597 @@
+/*
+    Core: General style
+----------------------------
+*/
+
+html, body {
+    overflow-x: hidden!important;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    background: @body-bg;
+}
+
+a {
+    color: @link-color;
+}
+a:hover, a:active, a:focus {
+    outline: none;
+    text-decoration: none;
+    color: @link-hover-color;
+}
+/* Layouts */
+.wrapper {
+    min-height: 100%;
+    .clearfix();    
+}
+
+/* Header */
+body > .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+/*
+    By default the layout is not fixed but if you add the class .fixed to the body element
+    and the navbar will automatically become poisitioned fixed
+*/
+body.fixed {
+    > .header, .navbar {
+        position: fixed;
+    }
+    > .header {
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    .navbar {
+        left: 0;
+        right: 0;
+    }
+
+    .wrapper {
+        margin-top: 50px;
+    }
+
+}
+
+
+/* Content */
+.content {
+    position: relative;
+    padding-top: 20px;
+    background: @body-bg;
+}
+
+.program-section {
+    min-height: 100%;
+    display: block;
+    background-color: @body-bg;
+    > .content-header {
+            margin-bottom: 5px;
+        }
+}
+
+/* Utility */
+
+/* H1 - H6 font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Page Header */
+.page-header {
+    margin: 10px 0 20px 0;
+    font-size: 22px;
+
+    > small {
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+/* All images should be responsive */
+img {
+    max-width: 100%important;
+}
+
+.sort-highlight {
+    background: #f4f4f4;
+    border: 1px dashed #ddd;
+    margin-bottom: 10px;
+}
+
+/* 10px padding and margins */
+.pad {
+    padding: 10px;
+}
+.margin {
+    margin: 10px;
+}
+
+/* Display inline */
+.inline {
+    display: inline;
+    width: auto;
+}
+
+/* Background colors */
+.bg-red,
+.bg-yellow,
+.bg-aqua,
+.bg-blue,
+.bg-light-blue,
+.bg-green,
+.bg-light-green,
+.bg-navy,
+.bg-teal,
+.bg-olive,
+.bg-lime,
+.bg-orange ,
+.bg-fuchsia,
+.bg-purple,
+.bg-maroon,
+.bg-black,
+.bg-cinnabar,
+.bg-rose,
+.bg-cherokee,
+.bg-mauvelous,
+.bg-west-side,
+.bg-gallery,
+.bg-polar,
+.bg-raffia,
+.bg-polo-blue,
+.bg-olive-tone,
+.bg-turtle-green,
+.bg-cerise,
+.bg-yellow-orange,
+.bg-curious-blue,
+.bg-pelorous,
+.bg-spindle,
+.bg-venetian-red,
+.bg-periwinkle-gray,
+.bg-blue-3D-1,
+.bg-blue-3D-2,
+.bg-blue-3D-3,
+.bg-blue-3D-4,
+.bg-blue-gloss-1,
+.bg-brown-3D,
+.bg-gold-3D,
+.bg-green-3D-2,
+.bg-green-3D-4,
+.bg-green-gloss-1,
+.bg-green-gloss-2,
+.bg-grey-3D,
+.bg-grey-gloss-1,
+.bg-black-gloss,
+.bg-neon,
+.bg-olive-3D-3,
+.bg-orange-3D-1,
+.bg-orange-3D-2,
+.bg-purple-3D,
+.bg-red-3D-2,
+.bg-red-3D-3,
+.bg-red-gloss-1,
+.bg-red-gloss-2,
+.bg-orange-gloss,
+.bg-wax-3D-1,
+.bg-wax-3D-2,
+.bg-black-3D-1,
+.bg-black-3D-2,
+.bg-white-gloss,
+.bg-pattern-1249,
+.bg-pattern-1252,
+.bg-pattern-1334,
+.bg-pattern-1335,
+.bg-pattern-1379,
+.bg-pattern-1384,
+.bg-pattern-1393,
+.bg-pattern-1394,
+.bg-pattern-1397,
+.bg-pattern-1398,
+.bg-pattern-1401,
+.bg-pattern-1411,
+.bg-pattern-456,
+.bg-pattern-881,
+.bg-pattern-885 {
+    color: #f9f9f9 !important;
+}
+.bg-gray {
+    background-color: @gray!important;
+}
+.bg-black {
+    background-color: @black!important;
+}
+.bg-red {
+    background-color: @red !important;
+}
+.bg-yellow {
+    background-color: @yellow !important;
+}
+.bg-aqua {
+    background-color: @aqua !important;
+}
+.bg-blue {
+    background-color: @blue !important;
+}
+.bg-light-blue {
+    background-color: @light-blue !important;
+}
+.bg-green {
+    background-color: @green !important;
+}
+.bg-light-green {
+    background-color: @light-green !important;
+}
+.bg-navy {
+    background-color: @navy !important;
+}
+.bg-teal {
+    background-color: @teal !important;
+}
+.bg-olive {
+    background-color: @olive !important;
+}
+.bg-lime {
+    background-color: @lime !important;
+}
+.bg-orange {
+    background-color: @orange !important;
+}
+.bg-fuchsia {
+    background-color: @fuchsia !important;
+}
+.bg-purple {
+    background-color: @purple !important;
+}
+.bg-maroon {
+    background-color: @maroon !important;
+}
+.bg-cinnabar {
+    .background-image(linear-gradient(to bottom, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 50%, rgba(246,41,12,1) 51%, rgba(240,47,23,1) 71%, rgba(231,56,39,1) 100%));
+}
+.bg-rose {
+    .background-image(linear-gradient(to bottom, rgba(255,93,177,1) 0%, rgba(239,1,124,1) 100%));
+}
+.bg-cherokee {
+    .background-image(linear-gradient(to bottom, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%));
+}
+.bg-mauvelous {
+    .background-image(linear-gradient(to bottom, rgba(239,197,202,1) 0%, rgba(210,75,90,1) 50%, rgba(186,39,55,1) 51%, rgba(241,142,153,1) 100%));
+}
+.bg-west-side {
+    .background-image(linear-gradient(to bottom, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%));
+}
+.bg-gallery {
+    .background-image(linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%));
+}
+.bg-polar {
+    .background-image(linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 50%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%));
+}
+.bg-raffia {
+    .background-image(linear-gradient(to bottom, rgba(243,226,199,1) 0%, rgba(193,158,103,1) 50%, rgba(182,141,76,1) 51%, rgba(233,212,179,1) 100%));
+}
+.bg-polo-blue {
+    .background-image(linear-gradient(to bottom, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%));
+}
+.bg-olive-tone {
+    .background-image(linear-gradient(to bottom, rgba(164,179,87,1) 0%, rgba(117,137,12,1) 100%));
+}
+.bg-turtle-green {
+    .background-image(linear-gradient(to bottom, rgba(98,125,77,1) 0%, rgba(31,59,8,1) 100%));
+}
+.bg-cerise {
+    .background-image(linear-gradient(to bottom, rgba(203,96,179,1) 0%, rgba(193,70,161,1) 50%, rgba(168,0,119,1) 51%, rgba(219,54,164,1) 100%));
+}
+.bg-yellow-orange {
+    .background-image(linear-gradient(to bottom, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%));
+}
+.bg-curious-blue {
+    .background-image(linear-gradient(to bottom, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%));
+}
+.bg-pelorous {
+    .background-image(linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%));
+}
+.bg-spindle {
+    .background-image(linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%));
+}
+.bg-venetian-red {
+    .background-image(linear-gradient(to bottom, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%));
+}
+.bg-periwinkle-gray {
+    .background-image(linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 50%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%));
+}
+.bg-blue-3D-1 {
+    .background-image(linear-gradient(to bottom, rgba(135,224,253,1) 0%,rgba(83,203,241,1) 40%,rgba(5,171,224,1) 100%));
+}
+.bg-blue-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%));
+}
+.bg-blue-3D-3 {
+    .background-image(linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%));
+}
+.bg-blue-3D-4 {
+    .background-image(linear-gradient(to bottom, rgba(0,183,234,1) 0%,rgba(0,158,195,1) 100%));
+}
+.bg-blue-gloss-1 {
+    .background-image(linear-gradient(to bottom, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%));
+}
+.bg-brown-3D {
+    .background-image(linear-gradient(to bottom, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%));
+}
+.bg-gold-3D {
+    .background-image(linear-gradient(to bottom, rgba(254,252,234,1) 0%,rgba(241,218,54,1) 100%));
+}
+.bg-green-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%));
+}
+.bg-green-3D-4 {
+    .background-image(linear-gradient(to bottom, rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%,rgba(57,130,53,1) 100%));
+}
+.bg-green-gloss-1 {
+    .background-image(linear-gradient(to bottom, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%));
+}
+.bg-green-gloss-2 {
+    .background-image(linear-gradient(to bottom, rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%));
+}
+.bg-grey-3D {
+    .background-image(linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%));
+}
+.bg-grey-gloss-1 {
+    .background-image(linear-gradient(to bottom, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%));
+}
+.bg-black-gloss {
+    .background-image(linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%));
+}
+.bg-neon {
+    .background-image(linear-gradient(to bottom, rgba(210,255,82,1) 0%,rgba(145,232,66,1) 100%));
+}
+.bg-olive-3D-3 {
+    .background-image(linear-gradient(to bottom, rgba(98,125,77,1) 0%,rgba(31,59,8,1) 100%));
+}
+.bg-orange-3D-1 {
+    .background-image(linear-gradient(to bottom, rgba(249,198,103,1) 0%,rgba(247,150,33,1) 100%));
+}
+.bg-orange-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(255,168,76,1) 0%,rgba(255,123,13,1) 100%));
+}
+.bg-purple-3D {
+    .background-image(linear-gradient(to bottom, rgba(235,233,249,1) 0%,rgba(216,208,239,1) 50%,rgba(206,199,236,1) 51%,rgba(193,191,234,1) 100%));
+}
+.bg-red-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(242,130,91,1) 0%,rgba(229,91,43,1) 50%,rgba(240,113,70,1) 100%));
+}
+.bg-red-3D-3 {
+    .background-image(linear-gradient(to bottom, rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%));
+}
+.bg-red-gloss-1 {
+    .background-image(linear-gradient(to bottom, rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%));
+}
+.bg-red-gloss-2 {
+    .background-image(linear-gradient(to bottom, rgba(254,204,177,1) 0%,rgba(241,116,50,1) 50%,rgba(234,85,7,1) 51%,rgba(251,149,94,1) 100%));
+}
+.bg-orange-gloss {
+    .background-image(linear-gradient(to bottom, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%));
+}
+.bg-wax-3D-1 {
+    .background-image(linear-gradient(to bottom, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%));
+}
+.bg-wax-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 40%,rgba(179,190,173,1) 100%));
+}
+.bg-black-3D-1 {
+    .background-image(linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%));
+}
+.bg-black-3D-2 {
+    .background-image(linear-gradient(to bottom, rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%));
+}
+.bg-white-gloss {
+    .background-image(linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%));
+}
+.bg-pattern-1249{
+    .background-image(url(../Assets/Images/Patterns/1249.png));
+}
+.bg-pattern-1252{
+    .background-image(url(../Assets/Images/Patterns/1252.png));
+}
+.bg-pattern-1334{
+    .background-image(url(../Assets/Images/Patterns/1334.png));
+}
+.bg-pattern-1335{
+    .background-image(url(../Assets/Images/Patterns/1335.png));
+}
+.bg-pattern-1379{
+    .background-image(url(../Assets/Images/Patterns/1379.png));
+}
+.bg-pattern-1384{
+    .background-image(url(../Assets/Images/Patterns/1384.png));
+}
+.bg-pattern-1393{
+    .background-image(url(../Assets/Images/Patterns/1393.png));
+}
+.bg-pattern-1394{
+    .background-image(url(../Assets/Images/Patterns/1394.png));
+}
+.bg-pattern-1397{
+    .background-image(url(../Assets/Images/Patterns/1397.png));
+}
+.bg-pattern-1398{
+    .background-image(url(../Assets/Images/Patterns/1398.png));
+}
+.bg-pattern-1401{
+    .background-image(url(../Assets/Images/Patterns/1401.png));
+}
+.bg-pattern-1411{
+    .background-image(url(../Assets/Images/Patterns/1411.png));
+}
+.bg-pattern-456{
+    .background-image(url(../Assets/Images/Patterns/456.png));
+}
+.bg-pattern-881{
+    .background-image(url(../Assets/Images/Patterns/881.png));
+}
+.bg-pattern-885{
+    .background-image(url(../Assets/Images/Patterns/885.png));
+}
+
+/* Text colors */
+.text-black {
+    color: @black !important;
+}
+.text-white {
+    color: @white !important;
+}
+.text-red {
+    color: @red !important;
+}
+.text-yellow {
+    color: @yellow !important;
+}
+.text-aqua {
+    color: @aqua !important;
+}
+.text-blue {
+    color: @blue !important;
+}
+.text-light-blue {
+    color: @light-blue !important;
+}
+.text-green {
+    color: @green !important;
+}
+.text-light-green {
+    color: @light-green !important;
+}
+.text-navy {
+    color: @navy !important;
+}
+.text-teal {
+    color: @teal !important;
+}
+.text-olive {
+    color: @olive !important;
+}
+.text-lime {
+    color: @lime !important;
+}
+.text-orange {
+    color: @orange !important;
+}
+.text-fuchsia {
+    color: @fuchsia !important;
+}
+.text-purple {
+    color: @purple !important;
+}
+.text-maroon {
+    color: @maroon !important;
+}
+
+/*Hide elements by display none only*/
+.hide {
+    display: none !important;
+}
+
+/* Remove borders */
+.no-border {
+    border: 0px !important;
+}
+/* Remove padding */
+.no-padding {
+    padding: 0px !important;
+}
+/* Remove margins */
+.no-margin {
+    margin: 0px !important;
+}
+
+/* Remove box shadow */
+.no-shadow {
+    box-shadow: none!important;
+}
+
+/* Don't display when printing */
+@media print {
+    //Add to elements that you do not want to show when printing
+    .no-print {
+        display: none;
+    }  
+    
+    //Elements that we want to hide when printing
+    .header {
+        display: none;
+    }
+    
+    //This is the only element that should appear, so let's remove the margins
+    .program-section {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Remove border radius */
+.flat, .flat > * {
+    .border-radius(0)!important;
+}
+
+/* Change the color of the striped tables */
+.table-striped > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+        background-color: @table-striped-color;
+    }
+}
+
+/* .text-center in tables */
+table.text-center {
+    td, th {
+        text-align: center;
+    }
+}
+
+.tooltip{
+    position:fixed;
+    .tooltip-inner {
+        max-width: 100%;
+    }
+}
+
+.loadIndicator
+{
+	position: absolute;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(249, 249, 249, 1);
+	opacity: 1;
+}
+.ajaxloadergif
+{
+	position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        margin-left: -110px;
+        z-index: 999;
+}
+
+a {
+    cursor: pointer;
+    cursor: hand;
+}

@@ -1,0 +1,43 @@
+<div class="col-sm-40 col-md-27 col-md-offset-27 col-sm-offset-20">
+    <error-messages></error-messages>
+    <div class="row" ng-init="init()">
+        <section class="col-lg-80">
+            <form class="form-horizontal">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <i class="fa fa-file-text"></i>
+                        <h3 class="box-title">Enter screen parameters</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-xs-73">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-27" for="screenname">{{ consts.PGMNM }}</label>
+                                    <div class="col-sm-53">
+                                        <input class="form-control" id="screenname" type="text" name="screenName" ng-model="screenName" ui-keypress="{'enter':'screenparams(screenName)'}" placeholder="Screen Name" tabindex="1" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-27" for="screenparams">{{ consts.PRMS }}</label>
+                                    <div class="col-sm-53">
+                                        <input class="form-control" id="screenparams" type="text" name="params" ng-model="screenParams" ui-keypress="{'enter':'screenparams(screenName)'}" placeholder="Params" tabindex="2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-xs-80">
+                                <div class="pull-right">
+                                    <button ng-click="navigate()" type="submit" class="btn btn-primary btn-sm">Navigate</button>
+                                    <button ng-click="cancelPress()" type="submit" class="btn btn-primary btn-sm">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
